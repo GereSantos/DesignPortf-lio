@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Posts para Instagram</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <button onclick="scrollToTop()" id="btnTop" title="Voltar ao topo">↑</button>
+
+  <!-- Modal com navegação -->
+  <div id="image-modal">
+    <span class="close-btn">&times;</span>
+    <img src="" alt="Imagem ampliada" id="modal-img">
+    <span class="nav-arrow left">&#10094;</span>
+    <span class="nav-arrow right">&#10095;</span>
+  </div>
+
+  <header>
+    <nav>
+      <div class="menu-toggle" id="hamburger-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <ul id="nav-links">
+        <li><a href="index.html">Início</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="page-content">
+    <section class="glass">
+      <h2>Carrossel</h2>
+      <div class="image-row">
+        <img src="./img/carrosel/Academia Carrosel.png" alt="Carrossel 1" />
+        <img src="./img/carrosel/photo_4906693874903264951_w.jpg" alt="Carrossel 2" />
+        <img src="./img/carrosel/CarroselPost11.png" alt="Carrossel 3" />
+      </div>
+    </section>
+
+    <section class="glass">
+      <h2>Single Post</h2>
+      <div class="image-row">
+        <img src="./img/singlepost/photo_5172639422397657080_w (1).jpg" alt="Single 1" />
+        <img src="./img/singlepost/1.png" alt="Single 2" />
+        <img src="./img/singlepost/3.png" alt="Single 5" />
+        <img src="./img/singlepost/Hamburguer (1).png" alt="Single 3" />
+        <img src="./img/singlepost/ESFIHA.png" alt="Single 3" />
+        <img src="./img/singlepost/PASTEL (1).png" alt="Single 4" />
+      </div>
+    </section>
+
+    <section class="glass">
+      <h2>Stories</h2>
+      <div class="image-row">
+        <img src="img/stories/photo_5175083151414897975_w.jpg" alt="Story 1" />
+        <img src="img/stories/photo_5175083151414897973_w.jpg" alt="Story 2" />
+        <img src="img/stories/photo_5175083151414897974_w.jpg" alt="Story 3" />
+        <img src="img/stories/photo_5175083151414897972_w.jpg" alt="Story 4" />
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
