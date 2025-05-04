@@ -1,0 +1,304 @@
+/* Resetando margin e definindo fonte padrão */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0d0d0d;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;  /* Ajustado para começar do topo */
+    height: 100%;
+    padding-top: 80px; /* Ajuste do padding-top para evitar que a navbar cubra o conteúdo */
+}
+
+/* Estilo do header */
+header {
+    width: 100%;
+    background: rgba(13, 13, 13, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+    z-index: 1000;
+}
+
+/* Navbar */
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: #01b9e0;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffffff;
+}
+
+/* Estilo da seção de Reels */
+section {
+    width: 90%;
+    max-width: 1200px;
+    padding: 50px;
+    text-align: center;
+    margin-top: 80px; /* Ajuste para compensar o padding-top do body */
+}
+
+/* Título da seção */
+.section-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #01b9e0;
+    margin-bottom: 40px;
+}
+
+/* Galeria de Capas de Reels */
+.reels-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Cartão de cada capa de Reel */
+.reels-card {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reels-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+/* Efeito de hover apenas aumentando a imagem */
+.reels-card:hover img {
+    transform: scale(1.1);
+}
+
+/* Modal para visualização de imagem */
+.image-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+/* Estilo da imagem no modal */
+#modal-img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+/* Fechar o modal */
+#close-modal {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 3rem;
+    color: white;
+    cursor: pointer;
+    z-index: 10001;
+}
+
+/* Setas de navegação */
+.nav-arrows {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    z-index: 10;
+    visibility: hidden; /* As setas ficam invisíveis inicialmente */
+}
+
+.arrow {
+    font-size: 3rem;
+    color: #01b9e0;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+/* Quando as setas estiverem visíveis, elas podem ser exibidas ao passar o mouse */
+.arrow:hover {
+    color: #ffffff;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .arrow {
+        font-size: 2rem; /* Reduz o tamanho das setas para telas menores */
+    }
+}
+
+@media (max-width: 480px) {
+    .arrow {
+        font-size: 1.5rem; /* Tamanho das setas ainda menor em telas pequenas */
+    }
+}
+/* Contêiner das setas */
+.nav-arrows {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+/* Estilo das setas */
+.arrow {
+    font-size: 2rem; /* Menor que antes */
+    color: #01b9e0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: none;
+    position: relative;
+    width: 40px;  /* Ajustado para as setas */
+    height: 40px;
+    border-radius: 50%; /* Tornando as setas circulares */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(1, 185, 224, 0.2); /* Fundo azul claro */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.arrow:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: solid transparent;
+    border-width: 8px;
+    border-left-color: #01b9e0; /* Cor da seta */
+}
+
+.arrow-left:before {
+    border-left-color: transparent;
+    border-right-color: #01b9e0;
+}
+
+.arrow-right:before {
+    border-left-color: #01b9e0;
+    border-right-color: transparent;
+}
+
+/* Efeito ao passar o mouse */
+.arrow:hover {
+    background-color: rgba(1, 185, 224, 0.3);
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 768px) {
+    .arrow {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .arrow {
+        font-size: 1.2rem; /* Ajuste ainda menor para telas pequenas */
+    }
+}
+/* Definir as setas como invisíveis inicialmente */
+.arrow {
+    font-size: 3rem;
+    color: #01b9e0;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    display: none; /* As setas ficam invisíveis inicialmente */
+}
+
+/* Quando as setas estiverem visíveis */
+.arrow:hover {
+    color: #ffffff;
+}
+
+
+/* Setas de navegação */
+.nav-arrows {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    z-index: 10;
+    visibility: visible; /* Torna visíveis assim que ativadas */
+}
+
+/* Estilo das setas */
+.arrow {
+    font-size: 3rem;
+    color: #01b9e0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(1, 185, 224, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.arrow-left:before {
+    border-left-color: transparent;
+    border-right-color: #01b9e0;
+}
+
+.arrow-right:before {
+    border-left-color: #01b9e0;
+    border-right-color: transparent;
+}
+
+/* Quando as setas estiverem visíveis */
+.arrow:hover {
+    background-color: rgba(1, 185, 224, 0.3);
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .arrow {
+        font-size: 2rem; /* Tamanho das setas reduzido para telas menores */
+    }
+}
+
+@media (max-width: 480px) {
+    .arrow {
+        font-size: 1.5rem; /* Tamanho das setas ainda menor em telas pequenas */
+    }
+}

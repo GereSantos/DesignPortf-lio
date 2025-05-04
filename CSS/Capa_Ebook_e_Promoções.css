@@ -1,0 +1,301 @@
+/* Resetando margin e definindo fonte padrão */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0d0d0d;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;  /* Garantir que ocupe 100% da tela */
+}
+
+/* Estilo do header */
+header {
+    width: 100%;
+    background: rgba(13, 13, 13, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+    z-index: 1000;
+}
+
+/* Navbar */
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: #01b9e0;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffffff;
+}
+
+/* Seção de Capas de Ebook */
+.ebook-section,
+.promotion-section {
+    width: 100%;
+    max-width: 1200px;
+    padding: 150px 50px 50px 50px;  /* Ajuste para evitar sobreposição com o header */
+    text-align: center;
+    margin-top: 150px;  /* Garantir que o conteúdo não sobreponha o header */
+}
+
+/* Título da seção */
+.section-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #01b9e0;
+    margin-bottom: 40px;
+}
+
+/* Galeria de Capas */
+.ebook-gallery,
+.promotion-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Cartão de cada capa */
+.ebook-card,
+.promotion-card {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 350px;
+}
+
+/* Imagem dentro do card */
+.ebook-card img,
+.promotion-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Efeito de hover aumentando a imagem */
+.ebook-card:hover img,
+.promotion-card:hover img {
+    transform: scale(1.1);
+}
+
+/* Modal de Visualização (Ebook e Promoção) */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.modal img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease;
+}
+
+/* Fechar Modal */
+#closeModal,
+#closePromotionModal {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 3rem;
+    color: white;
+    cursor: pointer;
+    z-index: 10001;
+}
+
+/* Setas de navegação - inicialmente invisíveis */
+.nav-arrows {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    z-index: 10001;
+    visibility: visible;  /* As setas ficam visíveis ao abrir o modal */
+}
+
+.arrow {
+    font-size: 3rem;
+    color: #01b9e0;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.arrow:hover {
+    color: #ffffff;
+}
+
+/* Efeito de Zoom */
+.modal img:active {
+    transform: scale(1.2); /* Aumenta a imagem ao clicar (zoom) */
+}
+
+/* Modal de Visualização */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+/* Imagem dentro do modal */
+.modal img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease;
+}
+
+/* Fechar Modal */
+#closeModal {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 3rem;
+    color: white;
+    cursor: pointer;
+    z-index: 10001;
+}
+
+/* Setas de navegação */
+.nav-arrows {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    z-index: 10001;
+}
+
+/* Inicialmente invisível */
+.prev-arrow, .next-arrow {
+    visibility: hidden;
+}
+
+.arrow {
+    font-size: 3rem;
+    color: #01b9e0;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.arrow:hover {
+    color: #ffffff;
+}
+
+/* Efeito de zoom na imagem */
+.modal img:hover {
+    transform: scale(1.2);  /* Aplica o zoom */
+    transition: transform 0.3s ease;  /* Suaviza a transição do zoom */
+}
+
+/* Modal de Visualização */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+/* Imagem dentro do modal */
+.modal img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease;
+}
+
+/* Fechar Modal */
+#closeModal {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 3rem;
+    color: white;
+    cursor: pointer;
+    z-index: 10001;
+}
+
+/* Setas de navegação */
+.nav-arrows {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    z-index: 10001;
+}
+
+/* Inicialmente invisível */
+.prev-arrow, .next-arrow {
+    visibility: hidden;
+}
+
+.arrow {
+    font-size: 3rem;
+    color: #01b9e0;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.arrow:hover {
+    color: #ffffff;
+}
+
+/* Efeito de zoom na imagem */
+.modal img:hover {
+    transform: scale(1.2);  /* Aplica o zoom */
+    transition: transform 0.3s ease;  /* Suaviza a transição do zoom */
+}
