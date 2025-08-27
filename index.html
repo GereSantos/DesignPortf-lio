@@ -1,164 +1,218 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Portfólio</title>
-    <link rel="stylesheet" type="text/css" href="./Index.css" media="screen" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfólio | Geremias</title>
+  <link rel="stylesheet" href="./Index.css" />
+  <meta name="theme-color" content="#0b0e14"/>
 </head>
 <body>
-    <button onclick="scrollToTop()" id="btnTop" title="Voltar ao topo">↑</button>
+  <!-- Skip link (A11y) -->
+  <a href="#projetos" class="skip-link">Pular para conteúdo principal</a>
 
-    <header>
-        <nav>
-            <!-- Menu Hamburguer -->
-            <div class="menu-toggle" id="hamburger-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            <!-- Links do menu -->
-            <ul id="nav-links">
-                <li><a href="#apresentacao">Sobre</a></li>
-                <li><a href="#projetos">Projetos</a></li>
-                <li><a href="#trabalho">Por que escolher meu trabalho?</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <section id="apresentacao">
-        <div class="glass">
-            <h1>Olá, Me chamo <b class="ccll">Geremias</b>, sou Designer Gráfico <b class="ccll">Especializado em Artes Digitais </b></h1>
-            <img src="../img/Photo/photo_5181627792515771996_y.jpg" alt="Foto do Geremias" class="foto-perfil">
-            <p>Bem-vindo ao meu portfólio! Aqui você encontra alguns dos meus trabalhos e como entrar em contato comigo.</p>
-        </div>
-    </section>
+  <!-- Botão Topo -->
+  <button onclick="scrollToTop()" id="btnTop" title="Voltar ao topo" aria-label="Voltar ao topo">↑</button>
 
-    <section id="projetos">
-        <div class="glass">
-          <h2>Meus Projetos</h2>
-          <p>Explore as diferentes categorias dos meus projetos. Clique em cada card para saber mais.</p>
-          <div class="cards-container">
-      
-            <div class="card">
-              <a href="../HTML/Post para Instagram.html">
-                <div class="card-bg" style="background-image: url('../img/Photo/pile-3d-instagram-logos.png');"></div>
-                <div class="card-content">
-                  <h3>Posts para Instagram</h3>
-                  <p>Carrossel, single post, stories.</p>
-                </div>
-              </a>
+  <!-- Header -->
+  <header class="navbar">
+    <nav class="nav-inner" aria-label="Principal">
+      <a class="brand" href="#" aria-label="Ir para o topo">Geremias | Designer Gráfico</a>
+
+      <!-- Menu Hamburguer -->
+      <button class="menu-toggle" id="hamburger-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+
+      <!-- Toggle Light/Dark/Auto (3 estados) -->
+      <button id="theme-toggle" class="theme-toggle" type="button"
+              aria-pressed="false" title="Alternar tema (Auto/Dark/Light)">
+        <span class="icon" aria-hidden="true">🖥️</span>
+        <span class="label">Auto</span>
+      </button>
+
+      <!-- Links -->
+      <ul id="nav-links" class="nav-links">
+        <li><a href="#apresentacao">Sobre</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#trabalho">Por que me escolher?</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section id="apresentacao" class="section hero reveal">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <h1 class="hero-title">
+              Compare, explore e contrate <span class="accent">design que converte</span>!
+            </h1>
+            <p class="hero-sub">
+              Olá! Eu sou <b class="accent">Geremias</b>, Designer Gráfico <b class="accent">especializado em artes digitais</b>.
+              Aqui você encontra meus projetos, processos e como falar comigo.
+            </p>
+
+            <!-- Ações -->
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#projetos">Ver projetos</a>
+              <a class="btn btn-ghost" href="#contato">Falar comigo</a>
             </div>
-      
-            <div class="card">
-              <a href="../HTML/Identidade Visual para Redes Sociais.html">
-                <div class="card-bg" style="background-image: url('../img/Photo/7008.jpg');"></div>
-                <div class="card-content">
-                  <h3>(EM BREVE) Identidade Visual para Redes Sociais</h3>
-                  <p>Mockups: Feed, Perfil, Post com Logo.</p>
-                </div>
-              </a>
+
+            <!-- Filtros -->
+            <div class="filters">
+              <div class="search">
+                <label class="sr-only" for="projectSearch">Buscar projetos</label>
+                <input id="projectSearch" type="search" placeholder="Buscar projeto por nome ou categoria…" aria-label="Buscar projetos"/>
+              </div>
+              <div class="chips" aria-label="Filtros por categoria">
+                <button class="chip is-active" data-filter="all" type="button">Todos</button>
+                <button class="chip" data-filter="instagram" type="button">Instagram</button>
+                <button class="chip" data-filter="identidade" type="button">Identidade Visual</button>
+                <button class="chip" data-filter="reels" type="button">Capas de Reels</button>
+                <button class="chip" data-filter="ebooks" type="button">E-books & Promos</button>
+                <button class="chip" data-filter="redesign" type="button">Redesign</button>
+                <button class="chip" data-filter="banners" type="button">Banners & Thumbs</button>
+              </div>
             </div>
-            
-      
-            <div class="card">
-              <a href="../HTML/CapadeReels.html">
-                <div class="card-bg" style="background-image: url('../img/Photo/3410479.jpg')"></div>
-                <div class="card-content">
-                  <h3>Capas de Reels</h3>
-                  <p>Design criativo para vídeos no Instagram.</p>
-                </div>
-              </a>
+
+            <!-- Stats -->
+            <div class="stats">
+              <div class="stat"><span class="num">6</span><span class="lbl">Categorias</span></div>
+              <div class="stat"><span class="num">24+</span><span class="lbl">Entregas</span></div>
+              <div class="stat"><span class="num">🔥</span><span class="lbl">Prazo ágil</span></div>
             </div>
-      
-            <div class="card">
-              <a href="../HTML/CapaEbookEpostpromocionais.html">
-                <div class="card-bg" style="background-image: url('../img/Photo/188203-OXY1CA-792.png')"></div>
-                <div class="card-content">
-                  <h3>Capas de E-books e Posts Promocionais</h3>
-                  <p>Design para e-books e materiais promocionais.</p>
-                </div>
-              </a>
-            </div>
-      
-            <div class="card">
-              <a href="../HTML/Antes e Depois de Redesigns.html">
-                <div class="card-bg" style="background-image: url('./img/projetos/redesign.jpg');"></div>
-                <div class="card-content">
-                  <h3>(EM BREVE) Antes e Depois de Redesigns</h3>
-                  <p>Transformações visuais de marcas e produtos.</p>
-                </div>
-              </a>
-            </div>
-      
-            <div class="card">
-              <a href="../HTML/Banners e Thumbnails.html">
-                <div class="card-bg" style="background-image: url('../img/Photo/4565778.jpg');"></div>
-                <div class="card-content">
-                  <h3>Banners e Thumbnails</h3>
-                  <p>Projetos visuais voltados para públicos de marketing digital, redes sociais, YouTube e e-commerce</p>
-                </div>
-              </a>
-            </div>
-      
+          </div>
+
+          <div class="hero-media">
+            <img src="../img/Photo/photo_5181627792515771996_y.jpg"
+                 alt="Foto de perfil do Geremias" class="foto-perfil"/>
           </div>
         </div>
-      </section>
-      
-
-    <section id="trabalho">
-        <div class="glass">
-            <h2>Por que escolher meu trabalho?</h2>
-            <p>✨ <strong>Não sou só mais um designer.</strong><br>
-            Eu misturo criatividade com estratégia, arte com propósito, pixels com resultados.</p>
-        
-            <p>Enquanto muitos focam só no visual, <strong>eu penso além:</strong></p>
-            <ul class="diferenciais-lista">
-                <li>🎯 <strong>Copy que convence</strong></li>
-                <li>🎥 <strong>Vídeos que prendem</strong></li>
-                <li>🧠 <strong>Design que conecta</strong> com a mente (e o coração) do público</li>
-            </ul>
-        
-            <p>⏰ <strong>Ah, e o relógio é meu melhor amigo:</strong><br>
-            Entrego antes do prazo. Sempre que posso. Sempre com qualidade.</p>
-        
-            <p>Crio com intenção, entrego com paixão e penso cada projeto como se fosse meu.</p>
-        
-            <p><strong>Se você procura alguém que faz bonito e faz sentido — achou.</strong></p>
-        </div>
-        
+      </div>
     </section>
 
-    <section id="contato">
-        <div class="glass">
-            <h2>Contato</h2>
-            <p>Entre em contato comigo através do formulário abaixo ou pelas minhas redes sociais.</p>
-    
-            <!-- Formulário de Contato -->
-            <form action="https://formsubmit.co/criativedeg@gmail.com" method="POST" class="contact-form">
-                <h3>Preencha o formulário</h3>
-                
-                <input type="text" name="name" placeholder="Seu Nome" required>
-                <input type="email" name="email" placeholder="Seu E-mail" required>
-                <textarea name="message" placeholder="Sua Mensagem" required></textarea>
-                
-                <button type="submit">Enviar</button>
-            </form>
-    
-            <div class="social-links">
-                <h3>Redes Sociais</h3>
-                <ul>
-                    <li><a href="https://www.instagram.com/gedesigner.oficial" target="_blank">Instagram</a></li>
-                    <li><a href="mailto:criativedeg@gmail.com" target="_blank">Email</a></li>
-                    <li><a href="https://wa.me/5519981310798?text=Oi!%20Quero%20saber%20mais%20sobre%20os%20servi%C3%A7os%20da%20GGDesign.%20Podemos%20conversar%20para%20eu%20entender%20melhor%20as%20op%C3%A7%C3%B5es%20dispon%C3%ADveis%3F" target="_blank">WhatsApp</a></li>
-                </ul>
-            </div>
-        </div>
-    </section>
-    
-    
+    <!-- Projetos -->
+    <section id="projetos" class="section reveal">
+      <div class="container">
+        <h2 class="section-title">Meus Projetos</h2>
+        <p class="section-sub">Clique em um card para ver mais detalhes.</p>
 
-    <script src="./index.js"></script>
+        <div id="cards" class="cards-grid">
+          <!-- Instagram -->
+          <article class="card" data-category="instagram" data-title="Posts para Instagram">
+            <a href="../HTML/Post para Instagram.html">
+              <div class="card-bg" style="background-image:url('../img/Photo/pile-3d-instagram-logos.png')"></div>
+              <div class="card-body">
+                <h3>Posts para Instagram</h3>
+                <p>Carrossel, single post, stories.</p>
+              </div>
+            </a>
+          </article>
+
+          <!-- Identidade -->
+          <article class="card" data-category="identidade" data-title="Identidade Visual para Redes Sociais">
+            <a href="../HTML/Identidade Visual para Redes Sociais.html">
+              <div class="card-bg" style="background-image:url('../img/Photo/7008.jpg')"></div>
+              <div class="card-body">
+                <h3>Identidade Visual para Redes Sociais</h3>
+                <p>Mockups: Feed, Perfil, Post com Logo.</p>
+              </div>
+            </a>
+          </article>
+
+           <!-- Identidade -->
+          <article class="card" data-category="ebooks" data-title="Capas de E-books e Posts Promocionais">
+            <a href="./HTML/CapaEbookEpostpromocionais.html">
+              <div class="card-bg" style="background-image:url('./img/Ebook\ and\ promotions/188203-OXY1CA-792.png')"></div>
+              <div class="card-body">
+                <h3>Capas de E-books e Posts Promocionais</h3>
+                <p>Design para e-books e materiais promocionais</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="card" data-category="reels" data-title="Capas de Reels">
+            <a href="./HTML/CapadeReels.html">
+              <div class="card-bg" style="background-image:url('./img/Photo/3410479.jpg')"></div>
+              <div class="card-body">
+                <h3>Capas de Reels</h3>
+                <p>Design criativo para videos no Instagram</p>
+              </div>
+            </a>
+          </article>
+
+           <article class="card" data-category="redesign" data-title="Antes e Depois de Redesigns">
+            <a href="./HTML/Antes e Depois de Redesigns.html">
+              <div class="card-bg" style="background-image:url('./img/Photo/pinterest-logo-evolution.png')"></div>
+              <div class="card-body">
+                <h3>Antes e Depois de Redesigns</h3>
+                <p>Transformações visuais de marcas e produtos</p>
+              </div>
+            </a>
+          </article>
+          <article class="card" data-category="banners" data-title="Banners e Thumbnails">
+            <a href="./HTML/Banners e Thumbnails.html">
+              <div class="card-bg" style="background-image:url('./img/Photo/4565778.jpg')"></div>
+              <div class="card-body">
+                <h3>Banners e Thumbnails</h3>
+                <p>Projetos visuais voltados para públicos de marketing digital, redes sociais e Youtube e e-commerce</p>
+              </div>
+            </a>
+          </article>
+          <!-- Outros cards... -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Por que me escolher -->
+    <section id="trabalho" class="section reveal">
+      <div class="container">
+        <h2 class="section-title">Por que escolher meu trabalho?</h2>
+        <ul class="bullets">
+          <li>🎯 <strong>Copy que convence</strong></li>
+          <li>🎥 <strong>Vídeos que prendem</strong></li>
+          <li>🧠 <strong>Design que conecta</strong> com a mente (e o coração) do público</li>
+        </ul>
+        <p class="muted">⏰ <strong>Prazos cumpridos</strong> e qualidade de ponta.</p>
+      </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="section reveal">
+      <div class="container">
+        <h2 class="section-title">Contato</h2>
+        <p class="section-sub">Preencha o formulário ou me chame nas redes sociais.</p>
+
+        <form action="https://formsubmit.co/criativedeg@gmail.com" method="POST" class="contact-form" id="contactForm">
+          <input type="hidden" name="_captcha" value="false"/>
+
+          <label class="sr-only" for="name">Nome</label>
+          <input id="name" type="text" name="name" placeholder="Seu nome" required/>
+
+          <label class="sr-only" for="email">E-mail</label>
+          <input id="email" type="email" name="email" placeholder="Seu e-mail" required/>
+
+          <label class="sr-only" for="message">Mensagem</label>
+          <textarea id="message" name="message" placeholder="Sua mensagem" rows="4" required></textarea>
+
+          <button type="submit" class="btn btn-primary">Enviar</button>
+          <p class="form-feedback" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="social-links">
+          <ul>
+            <li><a href="https://www.instagram.com/gedesigner.oficial" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="mailto:criativedeg@gmail.com" target="_blank" rel="noopener">E-mail</a></li>
+            <li><a href="https://wa.me/5519981310798?text=Oi!%20Quero%20saber%20mais%20sobre%20os%20servi%C3%A7os%20da%20GGDesign." target="_blank" rel="noopener">WhatsApp</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="./index.js"></script>
 </body>
 </html>

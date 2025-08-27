@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Antes e Depois de Redesign</title>
+  <link rel="stylesheet" href="../CSS/Antes_e_Depois.css" />
+  <meta name="theme-color" content="#0b0e14"/>
+</head>
+
+<!-- Mantém o atributo enquanto a página estiver em breve -->
+<body data-coming-soon="true">
+  <!-- Skip link -->
+  <a href="#conteudo" class="skip-link">Pular para conteúdo principal</a>
+
+  <!-- Botão Topo -->
+  <button onclick="scrollToTop()" id="btnTop" title="Voltar ao topo" aria-label="Voltar ao topo">↑</button>
+
+  <!-- Modal (desativado quando em breve) -->
+  <div id="image-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-heading" aria-hidden="true">
+    <h2 id="modal-heading" class="sr-only">Visualização de imagem</h2>
+    <div class="modal-inner">
+      <button class="close-btn" type="button" aria-label="Fechar">&times;</button>
+      <img src="" alt="" id="modal-img" />
+      <div class="modal-actions">
+        <button class="nav-arrow left" type="button" aria-label="Imagem anterior">&#10094;</button>
+        <button class="nav-arrow right" type="button" aria-label="Próxima imagem">&#10095;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="navbar">
+    <nav class="nav-inner" aria-label="Principal">
+      <a class="brand" href="../index.html" aria-label="Ir para a página inicial">
+        Geremias | Designer Gráfico
+      </a>
+
+      <!-- Menu Hamburguer -->
+      <button class="menu-toggle" id="hamburger-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+
+      <!-- Toggle tema -->
+      <button id="theme-toggle" class="theme-toggle" type="button"
+              aria-pressed="false" title="Alternar tema (Auto/Dark/Light)">
+        <span class="icon" aria-hidden="true">🖥️</span>
+        <span class="label">Auto</span>
+      </button>
+
+      <!-- Links -->
+      <ul id="nav-links" class="nav-links">
+        <li><a href="../index.html">Início</a></li>
+        <li><a href="../index.html#projetos">Projetos</a></li>
+        <li><a href="../index.html#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="conteudo" class="page-content">
+    <!-- Banner “Em breve” -->
+    <div class="soon-banner" role="status" aria-live="polite">
+      <span class="dot"></span>
+      <strong>Em breve:</strong> Estou preparando os projetos desta área.
+      <div class="actions">
+        <a class="btn btn-primary" href="../index.html#projetos">Ver outros projetos</a>
+        <a class="btn btn-ghost" href="mailto:criativedeg@gmail.com">Fale comigo</a>
+      </div>
+    </div>
+
+    <!-- Empty state -->
+    <section class="empty-state reveal" aria-describedby="soon-desc">
+      <div class="emoji" aria-hidden="true">🚧</div>
+      <h2 id="soon-desc">Página em construção</h2>
+      <p class="muted">
+        Em breve você verá aqui comparativos de antes e depois de redesign. Enquanto isso, confira meus outros trabalhos ou fale comigo diretamente.
+      </p>
+      <div class="actions">
+        <a class="btn btn-primary" href="../index.html#projetos">Explorar projetos</a>
+        <a class="btn btn-ghost" href="https://wa.me/5519981310798?text=Oi!%20Quero%20saber%20sobre%20o%20Redesign." target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </section>
+
+    <!-- Conteúdo real (oculto enquanto data-coming-soon="true") -->
+    <div class="content-ready">
+      <section class="glass reveal">
+        <h2>Comparativos de Redesign <span class="badge">Em breve</span></h2>
+        <div class="image-row" data-group="redesign" role="list">
+          <button class="img-item" role="listitem" aria-label="Antes e Depois 1">
+            <img class="zoomable" src="../img/Redesign/" alt="Antes e Depois 1" />
+          </button>
+          <button class="img-item" role="listitem" aria-label="Antes e Depois 2">
+            <img class="zoomable" src="../img/Redesign/" alt="Antes e Depois 2" />
+          </button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="../JS/Antes_e_Depois.js"></script>
+</body>
+</html>

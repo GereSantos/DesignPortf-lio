@@ -1,304 +1,137 @@
-/* Resetando margin e definindo fonte padrão */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #0d0d0d;
-    color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;  /* Ajustado para começar do topo */
-    height: 100%;
-    padding-top: 80px; /* Ajuste do padding-top para evitar que a navbar cubra o conteúdo */
+/* ===== Tokens / tema (coerentes com a Index) ===== */
+:root{
+  --bg:#0b0e14; --bg-elev:#0f1320; --surface:#121725;
+  --text:#e9eef2; --muted:#a6b0c3;
+
+  /* Acento = #01b9e0 */
+  --accent-r:1; --accent-g:185; --accent-b:224;
+  --accent: rgb(var(--accent-r), var(--accent-g), var(--accent-b));
+  --accent-ink:#ffffff;
+
+  --stroke:#1d2233; --shadow:0 10px 30px rgba(0,0,0,.35);
+  --radius:14px; --container:1200px;
+
+  --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+          Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+:root{ color-scheme: dark light; }
+:root[data-theme="light"]{
+  --bg:#f6f8fb; --bg-elev:#ffffff; --surface:#ffffff; --text:#0e1320; --muted:#55627b;
+  --stroke:#d9e0ee; --shadow:0 10px 30px rgba(14,19,32,.08);
 }
 
-/* Estilo do header */
-header {
-    width: 100%;
-    background: rgba(13, 13, 13, 0.9);
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    padding: 15px 0;
-    z-index: 1000;
+/* ===== Base ===== */
+*{ box-sizing:border-box }
+html,body{ height:100% }
+body{
+  margin:0; font-family:var(--font); color:var(--text); line-height:1.6;
+  background: radial-gradient(1200px 800px at 10% 0%, var(--bg-grad-start, #151a2a) 0%, var(--bg) 55%);
+}
+h2{ margin:0 0 12px; font-weight:800 }
+.section-title{ color:var(--text) }
+.section-sub{ color:var(--muted); margin:0 0 16px }
+
+/* ===== Navbar (padrão Index) ===== */
+.navbar{
+  position:sticky; top:0; z-index:1000;
+  backdrop-filter:saturate(140%) blur(10px);
+  background:linear-gradient(to bottom, rgba(11,14,20,.85), rgba(11,14,20,.45));
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+:root[data-theme="light"] .navbar{
+  background:linear-gradient(to bottom, rgba(255,255,255,.85), rgba(255,255,255,.65));
+  border-bottom:1px solid rgba(14,19,32,.08);
+}
+.nav-inner{ display:flex; align-items:center; justify-content:space-between; height:64px; max-width:var(--container); margin:0 auto; padding:0 16px }
+.brand{ font-weight:800; color:var(--text); text-decoration:none; letter-spacing:.3px }
+.menu-toggle{ display:none; cursor:pointer; border:0; background:transparent; padding:8px }
+.menu-toggle .bar{ display:block; width:24px; height:3px; background:var(--text); border-radius:3px; margin:4px 0 }
+.nav-links{ display:flex; gap:18px; list-style:none; padding:0; margin:0 }
+.nav-links a{ text-decoration:none; color:var(--muted); padding:10px 12px; border-radius:10px; font-weight:600 }
+.nav-links a:hover, .nav-links a:focus{ color:var(--text); background:rgba(255,255,255,.06) }
+
+/* Botão tema */
+.theme-toggle{
+  margin-left:8px; display:inline-flex; align-items:center; gap:8px;
+  padding:8px 12px; min-height:40px; border:1px solid var(--stroke);
+  border-radius:10px; background:var(--surface); color:var(--text); cursor:pointer
+}
+.theme-toggle:hover{ background:rgba(255,255,255,.06) }
+
+/* ===== Página ===== */
+.page-content{ padding:16px; }
+.glass{
+  max-width:var(--container); margin:36px auto; padding:22px;
+  background: rgba(255,255,255,.06);
+  border:1px solid var(--stroke);
+  border-radius: var(--radius);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow);
+}
+.section-title{ font-size:clamp(1.4rem, 1.2rem + 1.2vw, 2rem); }
+
+/* ===== Galeria (9:16 típico de Reels) ===== */
+.gallery{
+  display:grid;
+  grid-template-columns: repeat( auto-fit, minmax(160px, 1fr) );
+  gap:16px;
+}
+.tile{
+  position:relative; border-radius:12px; overflow:hidden;
+  aspect-ratio: 9 / 16; background:rgba(255,255,255,.04);
+  border:1px solid var(--stroke);
+  box-shadow:0 6px 16px rgba(0,0,0,.25);
+}
+.tile img{
+  width:100%; height:100%; object-fit:cover; display:block; cursor:pointer;
+  transition: transform .2s ease;
+}
+.tile img:hover{ transform: scale(1.03); }
+
+/* ===== Modal ===== */
+.modal{ display:none; position:fixed; inset:0; z-index:1200; background:rgba(0,0,0,.75); align-items:center; justify-content:center; opacity:0; transition:opacity .25s ease }
+.modal.show{ display:flex; opacity:1 }
+.modal-inner{
+  position:relative; max-width:min(92vw, 900px); max-height:88vh;
+  background:var(--bg-elev); border:1px solid var(--stroke);
+  border-radius:14px; padding:16px; box-shadow:0 25px 60px rgba(0,0,0,.5)
+}
+#modal-img{ display:block; max-width:70vw; max-height:80vh; border-radius:12px; margin:auto; box-shadow:0 20px 40px rgba(0,0,0,.45) }
+.close-btn{
+  position:absolute; top:10px; right:12px; font-size:28px; line-height:1;
+  background:var(--surface); color:var(--text); border:1px solid var(--stroke);
+  width:44px; height:44px; border-radius:10px; cursor:pointer;
+}
+.modal-actions .nav-arrow{
+  position:absolute; top:50%; transform:translateY(-50%); width:48px; height:48px;
+  border-radius:999px; border:1px solid var(--stroke);
+  background:var(--surface); color:var(--text); cursor:pointer; display:grid; place-items:center; font-size:26px
+}
+.modal-actions .left{ left:-12px } .modal-actions .right{ right:-12px }
+.modal-actions .nav-arrow:hover{ background:rgba(255,255,255,.06) }
+
+/* ===== Botão topo ===== */
+#btnTop{
+  display:none; position:fixed; bottom:28px; right:28px; z-index:1100;
+  font-size:18px; border:none; background:var(--accent); color:var(--accent-ink);
+  cursor:pointer; padding:12px 14px; border-radius:50%; box-shadow:var(--shadow)
+}
+#btnTop:hover{ transform:translateY(-2px) }
+
+/* ===== Responsividade ===== */
+@media (max-width: 720px){
+  .nav-links{
+    display:none; position:absolute; top:64px; right:0; left:0;
+    background:rgba(11,14,20,.96); border-bottom:1px solid rgba(255,255,255,.06); padding:12px;
+    flex-direction:column; gap:6px;
+  }
+  :root[data-theme="light"] .nav-links{ background:rgba(255,255,255,.98); border-bottom:1px solid rgba(14,19,32,.08) }
+  .nav-links.open{ display:flex }
+  .menu-toggle{ display:block }
+
+  .gallery{ grid-template-columns: repeat( auto-fit, minmax(130px, 1fr) ); }
 }
 
-/* Navbar */
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    gap: 20px;
-}
-
-nav ul li a {
-    color: #01b9e0;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-nav ul li a:hover {
-    color: #ffffff;
-}
-
-/* Estilo da seção de Reels */
-section {
-    width: 90%;
-    max-width: 1200px;
-    padding: 50px;
-    text-align: center;
-    margin-top: 80px; /* Ajuste para compensar o padding-top do body */
-}
-
-/* Título da seção */
-.section-title {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #01b9e0;
-    margin-bottom: 40px;
-}
-
-/* Galeria de Capas de Reels */
-.reels-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-/* Cartão de cada capa de Reel */
-.reels-card {
-    position: relative;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.reels-card img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-    cursor: pointer;
-}
-
-/* Efeito de hover apenas aumentando a imagem */
-.reels-card:hover img {
-    transform: scale(1.1);
-}
-
-/* Modal para visualização de imagem */
-.image-modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.8);
-    justify-content: center;
-    align-items: center;
-    z-index: 10000;
-}
-
-/* Estilo da imagem no modal */
-#modal-img {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-}
-
-/* Fechar o modal */
-#close-modal {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 3rem;
-    color: white;
-    cursor: pointer;
-    z-index: 10001;
-}
-
-/* Setas de navegação */
-.nav-arrows {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    transform: translateY(-50%);
-    z-index: 10;
-    visibility: hidden; /* As setas ficam invisíveis inicialmente */
-}
-
-.arrow {
-    font-size: 3rem;
-    color: #01b9e0;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-/* Quando as setas estiverem visíveis, elas podem ser exibidas ao passar o mouse */
-.arrow:hover {
-    color: #ffffff;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .arrow {
-        font-size: 2rem; /* Reduz o tamanho das setas para telas menores */
-    }
-}
-
-@media (max-width: 480px) {
-    .arrow {
-        font-size: 1.5rem; /* Tamanho das setas ainda menor em telas pequenas */
-    }
-}
-/* Contêiner das setas */
-.nav-arrows {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    transform: translateY(-50%);
-    z-index: 10;
-}
-
-/* Estilo das setas */
-.arrow {
-    font-size: 2rem; /* Menor que antes */
-    color: #01b9e0;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: none;
-    position: relative;
-    width: 40px;  /* Ajustado para as setas */
-    height: 40px;
-    border-radius: 50%; /* Tornando as setas circulares */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(1, 185, 224, 0.2); /* Fundo azul claro */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.arrow:before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: solid transparent;
-    border-width: 8px;
-    border-left-color: #01b9e0; /* Cor da seta */
-}
-
-.arrow-left:before {
-    border-left-color: transparent;
-    border-right-color: #01b9e0;
-}
-
-.arrow-right:before {
-    border-left-color: #01b9e0;
-    border-right-color: transparent;
-}
-
-/* Efeito ao passar o mouse */
-.arrow:hover {
-    background-color: rgba(1, 185, 224, 0.3);
-    transform: scale(1.1);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-}
-
-/* Responsividade para telas pequenas */
-@media (max-width: 768px) {
-    .arrow {
-        font-size: 1.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .arrow {
-        font-size: 1.2rem; /* Ajuste ainda menor para telas pequenas */
-    }
-}
-/* Definir as setas como invisíveis inicialmente */
-.arrow {
-    font-size: 3rem;
-    color: #01b9e0;
-    cursor: pointer;
-    transition: color 0.3s ease;
-    display: none; /* As setas ficam invisíveis inicialmente */
-}
-
-/* Quando as setas estiverem visíveis */
-.arrow:hover {
-    color: #ffffff;
-}
-
-
-/* Setas de navegação */
-.nav-arrows {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    transform: translateY(-50%);
-    z-index: 10;
-    visibility: visible; /* Torna visíveis assim que ativadas */
-}
-
-/* Estilo das setas */
-.arrow {
-    font-size: 3rem;
-    color: #01b9e0;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: rgba(1, 185, 224, 0.2);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.arrow-left:before {
-    border-left-color: transparent;
-    border-right-color: #01b9e0;
-}
-
-.arrow-right:before {
-    border-left-color: #01b9e0;
-    border-right-color: transparent;
-}
-
-/* Quando as setas estiverem visíveis */
-.arrow:hover {
-    background-color: rgba(1, 185, 224, 0.3);
-    transform: scale(1.1);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .arrow {
-        font-size: 2rem; /* Tamanho das setas reduzido para telas menores */
-    }
-}
-
-@media (max-width: 480px) {
-    .arrow {
-        font-size: 1.5rem; /* Tamanho das setas ainda menor em telas pequenas */
-    }
-}
+/* ===== A11y util ===== */
+.sr-only{ position:absolute!important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0 }
+:focus-visible{ outline:3px solid rgba(var(--accent-r), var(--accent-g), var(--accent-b), .85); outline-offset:2px }

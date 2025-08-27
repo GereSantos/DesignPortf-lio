@@ -2,30 +2,47 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Posts para Instagram</title>
   <link rel="stylesheet" href="../CSS/Post_Para_Instagram.css" />
+  <meta name="theme-color" content="#0b0e14"/>
 </head>
 <body>
-    <button onclick="scrollToTop()" id="btnTop" title="Voltar ao topo">↑</button>
+  <!-- Botão: voltar ao topo -->
+  <button id="btnTop" onclick="scrollToTop()" title="Voltar ao topo" aria-label="Voltar ao topo">↑</button>
 
-  <!-- Modal com navegação -->
-  <div id="image-modal">
-    <span class="close-btn">&times;</span>
-    <img src="" alt="Imagem ampliada" id="modal-img">
-    <span class="nav-arrow left">&#10094;</span>
-    <span class="nav-arrow right">&#10095;</span>
+  <!-- Modal (ampliação + navegação) -->
+  <div id="image-modal" class="modal" aria-hidden="true" role="dialog" aria-label="Visualização de imagem">
+    <div class="modal-inner">
+      <button class="close-btn" type="button" aria-label="Fechar">&times;</button>
+      <img id="modal-img" src="" alt="Imagem ampliada"/>
+      <div class="modal-actions">
+        <button class="nav-arrow left" aria-label="Imagem anterior">&#10094;</button>
+        <button class="nav-arrow right" aria-label="Próxima imagem">&#10095;</button>
+      </div>
+    </div>
   </div>
 
-  <header>
-    <nav>
-      <div class="menu-toggle" id="hamburger-menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
-      <ul id="nav-links">
-        <li><a href="../index.html">Início</a></li>
+  <!-- Header -->
+  <header class="navbar">
+    <nav class="nav-inner" aria-label="Principal">
+      <a class="brand" href="../index.html" aria-label="Ir para a página inicial">Geremias | Designer Gráfico</a>
+
+      <button class="menu-toggle" id="hamburger-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+
+      <!-- Toggle de tema (3 estados: Auto/Dark/Light) -->
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false" title="Alternar tema">
+        <span class="icon" aria-hidden="true">🖥️</span>
+        <span class="label">Auto</span>
+      </button>
+
+      <ul id="nav-links" class="nav-links">
+        <li><a href="../index.html#apresentacao">Sobre</a></li>
+        <li><a href="../index.html#projetos">Projetos</a></li>
+        <li><a href="../index.html#trabalho">Por que me escolher?</a></li>
+        <li><a href="../index.html#contato">Contato</a></li>
       </ul>
     </nav>
   </header>
@@ -33,32 +50,32 @@
   <main class="page-content">
     <section class="glass">
       <h2>Carrossel</h2>
-      <div class="image-row">
-        <img src="../img/carrosel/Academia Carrosel.png" alt="Carrossel 1" />
-        <img src="../img/carrosel/photo_4906693874903264951_w.jpg" alt="Carrossel 2" />
-        <img src="../img/carrosel/CarroselPost11.png" alt="Carrossel 3" />
+      <div class="image-row" data-group="carrossel">
+        <img loading="lazy" src="../img/carrosel/Academia Carrosel.png" alt="Carrossel 1" />
+        <img loading="lazy" src="../img/carrosel/photo_4906693874903264951_w.jpg" alt="Carrossel 2" />
+        <img loading="lazy" src="../img/carrosel/CarroselPost11.png" alt="Carrossel 3" />
       </div>
     </section>
 
     <section class="glass">
       <h2>Single Post</h2>
-      <div class="image-row">
-        <img src="../img/singlepost/POST1.png" alt="Single 1" />
-        <img src="../img/singlepost/1.png" alt="Single 2" />
-        <img src="../img/singlepost/3.png" alt="Single 5" />
-        <img src="../img/singlepost/Burguer.png" alt="Single 3" />
-        <img src="../img/singlepost/Pizza.png" alt="Single 3" />
-        <img src="../img/singlepost/photo_5172639422397657080_w (1).jpg" alt="Single 4" />
+      <div class="image-row" data-group="single">
+        <img loading="lazy" src="../img/singlepost/POST1.png" alt="Single 1" />
+        <img loading="lazy" src="../img/singlepost/1.png" alt="Single 2" />
+        <img loading="lazy" src="../img/singlepost/3.png" alt="Single 3" />
+        <img loading="lazy" src="../img/singlepost/Burguer.png" alt="Single 4" />
+        <img loading="lazy" src="../img/singlepost/Pizza.png" alt="Single 5" />
+        <img loading="lazy" src="../img/singlepost/photo_5172639422397657080_w (1).jpg" alt="Single 6" />
       </div>
     </section>
 
     <section class="glass">
       <h2>Stories</h2>
-      <div class="image-row">
-        <img src="../img/stories/photo_5175083151414897975_w.jpg" alt="Story 1" />
-        <img src="../img/stories/photo_5175083151414897973_w.jpg" alt="Story 2" />
-        <img src="../img/stories/photo_5175083151414897974_w.jpg" alt="Story 3" />
-        <img src="../img/stories/photo_5175083151414897972_w.jpg" alt="Story 4" />
+      <div class="image-row" data-group="stories">
+        <img loading="lazy" src="../img/stories/photo_5175083151414897975_w.jpg" alt="Story 1" />
+        <img loading="lazy" src="../img/stories/photo_5175083151414897973_w.jpg" alt="Story 2" />
+        <img loading="lazy" src="../img/stories/photo_5175083151414897974_w.jpg" alt="Story 3" />
+        <img loading="lazy" src="../img/stories/photo_5175083151414897972_w.jpg" alt="Story 4" />
       </div>
     </section>
   </main>

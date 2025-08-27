@@ -1,51 +1,68 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Banners e Thumbnails</title>
-    <link rel="stylesheet" href="../CSS/Banners_e_Thumbnails.css">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Banners e Thumbnails</title>
+  <link rel="stylesheet" href="../CSS/Banners_e_Thumbnails.css"/>
+  <meta name="theme-color" content="#0b0e14"/>
 </head>
 <body>
+  <!-- Botão Topo -->
+  <button onclick="scrollToTop()" id="btnTop" title="Voltar ao topo" aria-label="Voltar ao topo">↑</button>
 
-<header>
-    <nav>
-        <ul>
-            <li><a href="../index.html">Início</a></li>
-        </ul>
+  <!-- Modal -->
+  <div id="image-modal" class="modal" aria-hidden="true" role="dialog" aria-label="Visualização de imagem">
+    <div class="modal-inner">
+      <button class="close-btn" type="button" aria-label="Fechar">&times;</button>
+      <img id="modal-img" src="" alt="Imagem ampliada"/>
+      <div class="modal-actions">
+        <button class="nav-arrow left" aria-label="Imagem anterior">&#10094;</button>
+        <button class="nav-arrow right" aria-label="Próxima imagem">&#10095;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="navbar">
+    <nav class="nav-inner" aria-label="Principal">
+      <a class="brand" href="../index.html">Geremias | Designer Gráfico</a>
+      <button class="menu-toggle" id="hamburger-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false">
+        <span class="icon" aria-hidden="true">🖥️</span>
+        <span class="label">Auto</span>
+      </button>
+      <ul id="nav-links" class="nav-links">
+        <li><a href="../index.html">Início</a></li>
+        <li><a href="../index.html#projetos">Projetos</a></li>
+        <li><a href="../index.html#contato">Contato</a></li>
+      </ul>
     </nav>
-</header>
+  </header>
 
-<section class="banner-section">
-    <h2 class="section-title">Banners Criados</h2>
-    <div class="banner-gallery">
-        <div class="banner-card"><img src="../img/Banners e Thumbnails/Banner/1.png" alt="Banner 1"></div>
-        <div class="banner-card"><img src="../img/Banners e Thumbnails/Banner/2.png" alt="Banner 2"></div>
-        <div class="banner-card"><img src="../img/Banners e Thumbnails/Banner/3.png" alt="Banner 3"></div>
-    </div>
-</section>
+  <main class="page-content">
+    <section class="glass reveal">
+      <h2 class="section-title">Banners Criados</h2>
+      <div class="gallery" data-group="banners">
+        <figure class="tile"><img src="../img/Banners e Thumbnails/Banner/1.png" alt="Banner 1"/></figure>
+        <figure class="tile"><img src="../img/Banners e Thumbnails/Banner/2.png" alt="Banner 2"/></figure>
+        <figure class="tile"><img src="../img/Banners e Thumbnails/Banner/3.png" alt="Banner 3"/></figure>
+      </div>
+    </section>
 
-<section class="thumb-section">
-    <h2 class="section-title">Thumbnails Criadas</h2>
-    <div class="thumb-gallery">
-        <div class="thumb-card"><img src="../img/Banners e Thumbnails/Thumbnail/THUMB1.png" alt="Thumb 1"></div>
-        <div class="thumb-card"><img src="../img/Banners e Thumbnails/Thumbnail/THUMB2.png" alt="Thumb 2"></div>
-        <div class="thumb-card"><img src="../img/Banners e Thumbnails/Thumbnail/THUMB3.png" alt="Thumb 3"></div>
-        <div class="thumb-card"><img src="../img/Banners e Thumbnails/Thumbnail/THUMB4.png" alt="Thumb 4"></div>
-        
-    </div>
-</section>
+    <section class="glass reveal">
+      <h2 class="section-title">Thumbnails Criadas</h2>
+      <div class="gallery" data-group="thumbs">
+        <figure class="tile"><img src="../img/Banners e Thumbnails/Thumbnail/THUMB1.png" alt="Thumb 1"/></figure>
+        <figure class="tile"><img src="../img/Banners e Thumbnails/Thumbnail/THUMB2.png" alt="Thumb 2"/></figure>
+        <figure class="tile"><img src="../img/Banners e Thumbnails/Thumbnail/THUMB3.png" alt="Thumb 3"/></figure>
+        <figure class="tile"><img src="../img/Banners e Thumbnails/Thumbnail/THUMB4.png" alt="Thumb 4"/></figure>
+      </div>
+    </section>
+  </main>
 
-<!-- Modal para Visualização -->
-<div class="image-modal" id="imageModal">
-    <span id="closeModal">&times;</span>
-    <img id="modal-img" src="" alt="Visualização">
-    <div class="nav-arrows">
-        <span class="arrow prev">&#10094;</span>
-        <span class="arrow next">&#10095;</span>
-    </div>
-</div>
-
-<script src="../JS/Banners_e_Thumbnails.js"></script>
+  <script src="../JS/Banners_e_Thumbnails.js"></script>
 </body>
 </html>

@@ -1,65 +1,77 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galeria de Capas de Reels</title>
-    <link rel="stylesheet" href="../CSS/Capa_de_Reels.css">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Capas de Reels</title>
+  <link rel="stylesheet" href="../CSS/Capa_de_Reels.css"/>
+  <meta name="theme-color" content="#0b0e14"/>
 </head>
 <body>
+  <!-- Botão: voltar ao topo -->
+  <button id="btnTop" onclick="scrollToTop()" title="Voltar ao topo" aria-label="Voltar ao topo">↑</button>
 
-    <header>
-        <nav>
-            <ul id="nav-links">
-                <li><a href="../index.html">Início</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section>
-        <h2 class="section-title">Galeria de Capas de Reels</h2>
-
-        <!-- Galeria de Capas de Reels -->
-        <div class="reels-gallery">
-            <div class="reels-card">
-                <img src="../img/Reels/Sem Título-7.png" alt="Capa Reel 1" class="reel-img">
-            </div>
-            <div class="reels-card">
-                <img src="../img/Reels/Sem Título-8.png" alt="Capa Reel 2" class="reel-img">
-            </div>
-            <div class="reels-card">
-                <img src="../img/Reels/Sem Título-9.png" alt="Capa Reel 3" class="reel-img">
-            </div>
-            <div class="reels-card">
-                <img src="../img/Reels/Sem Título-10.png" alt="Capa Reel 4" class="reel-img">
-            </div>
-            <div class="reels-card">
-              <img src="../img/Reels/Sem Título-11.png" alt="Capa Reel 5" class="reel-img">
-          </div>
-        </div>
-
-
-        <!-- Modal para imagem ampliada -->
-        <div id="image-modal" class="image-modal">
-            <span id="close-modal" class="close-btn">&times;</span>
-            <img id="modal-img" src="" alt="Imagem Ampliada">
-        </div>
-    </section>
-
-
-    <!-- Modal de imagem -->
-<div id="image-modal" class="image-modal">
-    <div class="nav-arrows">
-        <div id="prev-arrow" class="arrow arrow-left"></div> <!-- Seta para a esquerda -->
-        <div id="next-arrow" class="arrow arrow-right"></div> <!-- Seta para a direita -->
+  <!-- Modal (ampliação + navegação) -->
+  <div id="image-modal" class="modal" aria-hidden="true" role="dialog" aria-label="Visualização de imagem">
+    <div class="modal-inner">
+      <button class="close-btn" type="button" aria-label="Fechar">&times;</button>
+      <img id="modal-img" src="" alt="Imagem ampliada"/>
+      <div class="modal-actions">
+        <button class="nav-arrow left" aria-label="Imagem anterior">&#10094;</button>
+        <button class="nav-arrow right" aria-label="Próxima imagem">&#10095;</button>
+      </div>
     </div>
-    <span id="close-modal">X</span>
-    <img id="modal-img" src="" alt="Imagem do Reel">
-</div>
+  </div>
 
-    
-    
+  <!-- Header -->
+  <header class="navbar">
+    <nav class="nav-inner" aria-label="Principal">
+      <a class="brand" href="../index.html" aria-label="Ir para a página inicial">Geremias | Designer Gráfico</a>
 
-    <script src="../JS/Capa_De_reels.js"></script>
+      <button class="menu-toggle" id="hamburger-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+
+      <!-- Toggle de tema (3 estados) -->
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false" title="Alternar tema (Auto/Dark/Light)">
+        <span class="icon" aria-hidden="true">🖥️</span>
+        <span class="label">Auto</span>
+      </button>
+
+      <ul id="nav-links" class="nav-links">
+        <li><a href="../index.html#apresentacao">Sobre</a></li>
+        <li><a href="../index.html#projetos">Projetos</a></li>
+        <li><a href="../index.html#trabalho">Por que me escolher?</a></li>
+        <li><a href="../index.html#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="page-content">
+    <section class="glass">
+      <h2 class="section-title">Galeria de Capas de Reels</h2>
+      <p class="section-sub">Clique para ampliar e navegar.</p>
+
+      <div class="gallery" data-group="reels">
+        <figure class="tile">
+          <img loading="lazy" src="../img/Reels/Sem Título-7.png" alt="Capa Reel 1"/>
+        </figure>
+        <figure class="tile">
+          <img loading="lazy" src="../img/Reels/Sem Título-8.png" alt="Capa Reel 2"/>
+        </figure>
+        <figure class="tile">
+          <img loading="lazy" src="../img/Reels/Sem Título-9.png" alt="Capa Reel 3"/>
+        </figure>
+        <figure class="tile">
+          <img loading="lazy" src="../img/Reels/Sem Título-10.png" alt="Capa Reel 4"/>
+        </figure>
+        <figure class="tile">
+          <img loading="lazy" src="../img/Reels/Sem Título-11.png" alt="Capa Reel 5"/>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <script src="../JS/Capa_de_Reels.js"></script>
 </body>
 </html>
