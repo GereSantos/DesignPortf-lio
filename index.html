@@ -3,40 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portfólio | Geremias</title>
+  <title>Design para Dentistas | Portfólio de Geremias</title>
   <link rel="stylesheet" href="./Index.css" />
   <meta name="theme-color" content="#0b0e14"/>
 </head>
 <body>
-  <!-- Skip link (A11y) -->
   <a href="#projetos" class="skip-link">Pular para conteúdo principal</a>
-
-  <!-- Botão Topo -->
   <button onclick="scrollToTop()" id="btnTop" title="Voltar ao topo" aria-label="Voltar ao topo">↑</button>
 
-  <!-- Header -->
   <header class="navbar">
     <nav class="nav-inner" aria-label="Principal">
-      <a class="brand" href="#" aria-label="Ir para o topo">Geremias | Designer Gráfico</a>
+      <a class="brand" href="#" aria-label="Ir para o topo">Geremias | Design para Dentistas</a>
 
-      <!-- Menu Hamburguer -->
       <button class="menu-toggle" id="hamburger-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
 
-      <!-- Toggle Light/Dark/Auto (3 estados) -->
       <button id="theme-toggle" class="theme-toggle" type="button"
               aria-pressed="false" title="Alternar tema (Auto/Dark/Light)">
         <span class="icon" aria-hidden="true">🖥️</span>
         <span class="label">Auto</span>
       </button>
 
-      <!-- Links -->
       <ul id="nav-links" class="nav-links">
         <li><a href="#apresentacao">Sobre</a></li>
-        <li><a href="#projetos">Projetos</a></li>
-        <li><a href="#trabalho">Por que me escolher?</a></li>
-        <li><a href="#contato">Contato</a></li>
+        <li><a href="#projetos">Estudos de Caso</a></li>
+        <li><a href="#servicos">Soluções</a></li>
+        <li><a href="#contato">Fale com um Especialista</a></li>
       </ul>
     </nav>
   </header>
@@ -48,121 +41,87 @@
         <div class="hero-grid">
           <div class="hero-copy">
             <h1 class="hero-title">
-              Compare, explore e contrate <span class="accent">design que converte</span>!
+              Design estratégico que transforma <span class="accent">dentistas em autoridades digitais</span>.
             </h1>
             <p class="hero-sub">
-              Olá! Eu sou <b class="accent">Geremias</b>, Designer Gráfico <b class="accent">especializado em artes digitais</b>.
-              Aqui você encontra meus projetos, processos e como falar comigo.
+              Sou <b class="accent">Geremias</b>, especialista em <b class="accent">Design para Odontologia</b>.
+              Crio identidades, conteúdos e páginas que aumentam a confiança do paciente, elevam o valor percebido e ajudam sua clínica a receber mais agendamentos.
             </p>
 
-            <!-- Ações -->
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#projetos">Ver projetos</a>
-              <a class="btn btn-ghost" href="#contato">Falar comigo</a>
+              <a class="btn btn-primary" href="#projetos" aria-label="Ver estudos de caso para dentistas">Ver estudo de caso</a>
+              <a class="btn btn-ghost" href="#contato" aria-label="Falar com um especialista em design para dentistas">Fale com um Especialista</a>
             </div>
 
-            <!-- Filtros -->
             <div class="filters">
               <div class="search">
-                <label class="sr-only" for="projectSearch">Buscar projetos</label>
-                <input id="projectSearch" type="search" placeholder="Buscar projeto por nome ou categoria…" aria-label="Buscar projetos"/>
+                <label class="sr-only" for="projectSearch">Buscar estudos de caso</label>
+                <input id="projectSearch" type="search" placeholder="Buscar por tipo de peça ou caso…" aria-label="Buscar estudos de caso"/>
               </div>
               <div class="chips" aria-label="Filtros por categoria">
                 <button class="chip is-active" data-filter="all" type="button">Todos</button>
-                <button class="chip" data-filter="instagram" type="button">Instagram</button>
-                <button class="chip" data-filter="identidade" type="button">Identidade Visual</button>
-                <button class="chip" data-filter="reels" type="button">Capas de Reels</button>
-                <button class="chip" data-filter="ebooks" type="button">E-books & Promos</button>
-                <button class="chip" data-filter="redesign" type="button">Redesign</button>
-                <button class="chip" data-filter="banners" type="button">Banners & Thumbs</button>
+                <button class="chip" data-filter="instagram-odonto" type="button">Instagram Odonto</button>
+                <button class="chip" data-filter="identidade-clinicas" type="button">Identidade de Clínica</button>
+                <button class="chip" data-filter="reels-odonto" type="button">Capas de Reels</button>
+                <button class="chip" data-filter="materiais-educativos" type="button">Materiais do Paciente</button>
+                <button class="chip" data-filter="redesign-antes-depois" type="button">Antes & Depois</button>
+                <button class="chip" data-filter="anuncios-trafego" type="button">Anúncios & Banners</button>
               </div>
             </div>
 
-            <!-- Stats -->
             <div class="stats">
-              <div class="stat"><span class="num">6</span><span class="lbl">Categorias</span></div>
-              <div class="stat"><span class="num">24+</span><span class="lbl">Entregas</span></div>
-              <div class="stat"><span class="num">🔥</span><span class="lbl">Prazo ágil</span></div>
+              <div class="stat"><span class="num">🦷</span><span class="lbl">Foco em Odonto</span></div>
+              <div class="stat"><span class="num">🎯</span><span class="lbl">Autoridade & Confiança</span></div>
+              <div class="stat"><span class="num">🔥</span><span class="lbl">Prazos ágeis</span></div>
             </div>
           </div>
 
           <div class="hero-media">
-            <img src="../img/Photo/photo_5181627792515771996_y.jpg"
-                 alt="Foto de perfil do Geremias" class="foto-perfil"/>
+            <img src="../img/Photo/photo_5181627792515771996_y.png"
+                 alt="Foto de perfil do Geremias, designer especializado em odontologia" class="foto-perfil"/>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Projetos -->
+    <!-- Serviços -->
+    <section id="servicos" class="section reveal">
+      <div class="container">
+        <h2 class="section-title">Soluções para Dentistas</h2>
+        <p class="section-sub">Resultados claros: mais pacientes, maior valor percebido e presença digital consistente.</p>
+
+        <ul class="bullets">
+          <li>🪥 <strong>Posicionamento Digital para Dentistas</strong> — da bio ao roteiro visual das postagens, com foco em autoridade e captação.</li>
+          <li>🏷️ <strong>Identidade Visual para Clínicas e Consultórios</strong> — logotipo, paleta, tipografia e aplicações para um padrão premium.</li>
+          <li>📱 <strong>Conteúdo que Educa e Converte</strong> — carrosséis, capas de reels e materiais de pós-consulta que geram confiança.</li>
+          <li>🖼️ <strong>Antes & Depois com Responsabilidade</strong> — padrões visuais coerentes, legibilidade e cuidado com informação.</li>
+          <li>📣 <strong>Anúncios & Banners</strong> — peças pensadas para campanhas de tráfego com ênfase em diferenciais reais.</li>
+        </ul>
+
+        <p class="muted" style="margin-top:10px">⏰ <strong>Otimização de tempo</strong> para a sua equipe e <strong>consistência visual</strong> em todos os pontos de contato.</p>
+      </div>
+    </section>
+
+    <!-- Estudos de Caso -->
     <section id="projetos" class="section reveal">
       <div class="container">
-        <h2 class="section-title">Meus Projetos</h2>
-        <p class="section-sub">Clique em um card para ver mais detalhes.</p>
+        <h2 class="section-title">Estudos de Caso</h2>
+        <p class="section-sub">Clique para ver a solução aplicada e o impacto no consultório.</p>
 
         <div id="cards" class="cards-grid">
-          <!-- Instagram -->
-          <article class="card" data-category="instagram" data-title="Posts para Instagram">
-            <a href="../HTML/Post para Instagram.html">
-              <div class="card-bg" style="background-image:url('../img/Photo/pile-3d-instagram-logos.png')"></div>
-              <div class="card-body">
-                <h3>Posts para Instagram</h3>
-                <p>Carrossel, single post, stories.</p>
-              </div>
-            </a>
-          </article>
-
-          <!-- Identidade -->
-          <article class="card" data-category="identidade" data-title="Identidade Visual para Redes Sociais">
-            <a href="../HTML/Identidade Visual para Redes Sociais.html">
-              <div class="card-bg" style="background-image:url('../img/Photo/7008.jpg')"></div>
-              <div class="card-body">
-                <h3>Identidade Visual para Redes Sociais</h3>
-                <p>Mockups: Feed, Perfil, Post com Logo.</p>
-              </div>
-            </a>
-          </article>
-
-           <!-- Identidade -->
-          <article class="card" data-category="ebooks" data-title="Capas de E-books e Posts Promocionais">
-            <a href="./HTML/CapaEbookEpostpromocionais.html">
-              <div class="card-bg" style="background-image:url('./img/Ebook\ and\ promotions/188203-OXY1CA-792.png')"></div>
-              <div class="card-body">
-                <h3>Capas de E-books e Posts Promocionais</h3>
-                <p>Design para e-books e materiais promocionais</p>
-              </div>
-            </a>
-          </article>
-
-          <article class="card" data-category="reels" data-title="Capas de Reels">
-            <a href="./HTML/CapadeReels.html">
-              <div class="card-bg" style="background-image:url('./img/Photo/3410479.jpg')"></div>
-              <div class="card-body">
-                <h3>Capas de Reels</h3>
-                <p>Design criativo para videos no Instagram</p>
-              </div>
-            </a>
-          </article>
-
-           <article class="card" data-category="redesign" data-title="Antes e Depois de Redesigns">
-            <a href="./HTML/Antes e Depois de Redesigns.html">
-              <div class="card-bg" style="background-image:url('./img/Photo/pinterest-logo-evolution.png')"></div>
-              <div class="card-body">
-                <h3>Antes e Depois de Redesigns</h3>
-                <p>Transformações visuais de marcas e produtos</p>
-              </div>
-            </a>
-          </article>
-          <article class="card" data-category="banners" data-title="Banners e Thumbnails">
-            <a href="./HTML/Banners e Thumbnails.html">
+          <!-- CARD: Guia Visual – Clínica Sorriso Pleno -->
+          <article class="card" data-category="materiais-educativos" data-title="Guia Visual — Clínica Sorriso Pleno">
+            <a href="./HTML/case-sorriso-pleno.html">
               <div class="card-bg" style="background-image:url('./img/Photo/4565778.jpg')"></div>
               <div class="card-body">
-                <h3>Banners e Thumbnails</h3>
-                <p>Projetos visuais voltados para públicos de marketing digital, redes sociais e Youtube e e-commerce</p>
+                <h3>Guia Visual — Clínica Sorriso Pleno</h3>
+                <p><strong>Cliente:</strong> Clínica Sorriso Pleno</p>
+                <p><strong>Desafio:</strong> Padronizar comunicação para educar, gerar autoridade e reforçar prova social.</p>
+                <p><strong>Solução:</strong> 10 templates (retrato 1080×1350) para conteúdo educativo, prova social e CTA.</p>
+                <p class="muted"><strong>Resultado esperado:</strong> mais confiança do paciente e agendamentos qualificados.</p>
               </div>
             </a>
           </article>
-          <!-- Outros cards... -->
         </div>
       </div>
     </section>
@@ -172,19 +131,33 @@
       <div class="container">
         <h2 class="section-title">Por que escolher meu trabalho?</h2>
         <ul class="bullets">
-          <li>🎯 <strong>Copy que convence</strong></li>
-          <li>🎥 <strong>Vídeos que prendem</strong></li>
-          <li>🧠 <strong>Design que conecta</strong> com a mente (e o coração) do público</li>
+          <li>🧠 <strong>Entendo as dores do consultório</strong> — agenda, objeções, linguagem do paciente e ética profissional.</li>
+          <li>🎯 <strong>Design que gera confiança</strong> — aparência premium + informação clara = maior valor percebido.</li>
+          <li>📈 <strong>Conteúdo que educa e converte</strong> — menos dúvidas, mais agendamentos qualificados.</li>
         </ul>
-        <p class="muted">⏰ <strong>Prazos cumpridos</strong> e qualidade de ponta.</p>
+        <p class="muted">Integro identidade, conteúdo e peças de campanha para construir <strong>autoridade digital</strong> de forma consistente.</p>
+      </div>
+    </section>
+
+    <!-- Sobre Mim -->
+    <section class="section reveal">
+      <div class="container">
+        <h2 class="section-title">Sobre mim</h2>
+        <p class="section-sub">
+          Minha especialidade é traduzir a excelência clínica em uma comunicação visual que o paciente entende e confia.
+        </p>
+        <p>
+          Mais do que “post bonito”, entrego <strong>clareza, consistência e padrão</strong> em todos os pontos de contato: recepção, redes, materiais de orientação e anúncios.
+          Meu papel é organizar isso para você e sua equipe, poupando tempo e elevando o valor percebido do seu serviço.
+        </p>
       </div>
     </section>
 
     <!-- Contato -->
     <section id="contato" class="section reveal">
       <div class="container">
-        <h2 class="section-title">Contato</h2>
-        <p class="section-sub">Preencha o formulário ou me chame nas redes sociais.</p>
+        <h2 class="section-title">Pronto para construir sua autoridade?</h2>
+        <p class="section-sub">Preencha o formulário ou me chame nas redes — vamos alinhar um plano sob medida para sua clínica.</p>
 
         <form action="https://formsubmit.co/criativedeg@gmail.com" method="POST" class="contact-form" id="contactForm">
           <input type="hidden" name="_captcha" value="false"/>
@@ -196,9 +169,9 @@
           <input id="email" type="email" name="email" placeholder="Seu e-mail" required/>
 
           <label class="sr-only" for="message">Mensagem</label>
-          <textarea id="message" name="message" placeholder="Sua mensagem" rows="4" required></textarea>
+          <textarea id="message" name="message" placeholder="Conte sua especialidade (ex.: orto, implante, estética) e o que deseja melhorar." rows="4" required></textarea>
 
-          <button type="submit" class="btn btn-primary">Enviar</button>
+          <button type="submit" class="btn btn-primary">Vamos Construir Sua Autoridade</button>
           <p class="form-feedback" role="status" aria-live="polite"></p>
         </form>
 
@@ -206,7 +179,7 @@
           <ul>
             <li><a href="https://www.instagram.com/gedesigner.oficial" target="_blank" rel="noopener">Instagram</a></li>
             <li><a href="mailto:criativedeg@gmail.com" target="_blank" rel="noopener">E-mail</a></li>
-            <li><a href="https://wa.me/5519981310798?text=Oi!%20Quero%20saber%20mais%20sobre%20os%20servi%C3%A7os%20da%20GGDesign." target="_blank" rel="noopener">WhatsApp</a></li>
+            <li><a href="https://wa.me/5519981310798?text=Oi!%20Sou%20dentista%20e%20quero%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20para%20minha%20cl%C3%ADnica." target="_blank" rel="noopener">WhatsApp</a></li>
           </ul>
         </div>
       </div>

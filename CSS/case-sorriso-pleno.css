@@ -1,0 +1,416 @@
+/* =========================
+   CASE — CLÍNICA SORRISO PLENO
+   CSS exclusivo e isolado (namespaced).
+   ========================= */
+.page-case-sorriso{
+  --bg:#0b0e14; --bg-elev:#0f1320; --surface:#121725;
+  --text:#e9eef2; --muted:#a6b0c3;
+  --accent-r:1; --accent-g:185; --accent-b:224; /* #01b9e0 */
+  --accent: rgb(var(--accent-r), var(--accent-g), var(--accent-b));
+  --accent-ink:#ffffff;
+  --stroke:#1d2233; --shadow:0 10px 30px rgba(0,0,0,.35);
+  --radius:14px; --container:1200px;
+  --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+          Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+
+  margin:0; color:var(--text); line-height:1.6; font-family:var(--font);
+  background: radial-gradient(1200px 800px at 10% 0%, #151a2a 0%, var(--bg) 55%);
+  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+}
+
+/* Reset básico no escopo */
+.page-case-sorriso *, .page-case-sorriso *::before, .page-case-sorriso *::after{ box-sizing:border-box }
+.page-case-sorriso h1, .page-case-sorriso h2, .page-case-sorriso h3, .page-case-sorriso b, .page-case-sorriso strong{ font-weight:700 }
+.page-case-sorriso .brand, .page-case-sorriso .section-title{ font-weight:800 }
+.page-case-sorriso .btn, .page-case-sorriso .stat .num{ font-weight:700 }
+
+/* Foco & skip */
+.page-case-sorriso :focus-visible{ outline:3px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),.9); outline-offset:2px }
+.page-case-sorriso .skip-link{ position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden }
+.page-case-sorriso .skip-link:focus{
+  left:16px; top:16px; padding:10px 12px; background:var(--accent); color:var(--accent-ink);
+  border-radius:10px; z-index:1100
+}
+
+/* Navbar */
+.page-case-sorriso .navbar{
+  position:sticky; top:0; z-index:1000;
+  backdrop-filter:saturate(140%) blur(10px);
+  background:linear-gradient(to bottom, rgba(11,14,20,.85), rgba(11,14,20,.45));
+  border-bottom:1px solid rgba(255,255,255,.04);
+}
+.page-case-sorriso .nav-inner{ display:flex; align-items:center; justify-content:space-between; height:64px; max-width:var(--container); margin:0 auto; padding:0 16px }
+.page-case-sorriso .brand{ color:var(--text); text-decoration:none; letter-spacing:.3px }
+.page-case-sorriso .menu-toggle{ display:none; cursor:pointer; border:0; background:transparent; padding:8px }
+.page-case-sorriso .menu-toggle .bar{ display:block; width:24px; height:3px; background:var(--text); border-radius:3px; margin:4px 0 }
+.page-case-sorriso .nav-links{ display:flex; gap:18px; list-style:none; padding:0; margin:0 }
+.page-case-sorriso .nav-links a{ text-decoration:none; color:var(--muted); padding:10px 12px; border-radius:10px }
+.page-case-sorriso .nav-links a:hover, .page-case-sorriso .nav-links a:focus{ color:var(--text); background:rgba(255,255,255,.06) }
+
+/* Seções & Containers */
+.page-case-sorriso .section{ padding:56px 0 }
+.page-case-sorriso .container{ max-width:var(--container); margin:0 auto; padding:0 16px }
+.page-case-sorriso .section-title{ font-size:clamp(1.6rem, 2vw + 1rem, 2.2rem); margin:0 0 10px }
+.page-case-sorriso .section-sub{ margin:0 0 24px; color:var(--muted) }
+.page-case-sorriso .muted{ color:var(--muted) }
+.page-case-sorriso .accent{ color:var(--accent) }
+
+/* Hero */
+.page-case-sorriso .hero-grid{ display:grid; grid-template-columns: 1.15fr .85fr; gap:28px; align-items:center }
+.page-case-sorriso .hero-title{ margin:0 0 10px }
+.page-case-sorriso .hero-sub{ color:var(--muted); margin:0 0 18px }
+.page-case-sorriso .hero-actions{ display:flex; gap:10px; margin:16px 0 20px }
+.page-case-sorriso .foto-perfil{ width:260px; max-width:100%; border-radius:18px; display:block; margin:0 auto; box-shadow:0 10px 30px rgba(0,0,0,.35) }
+
+/* Botões */
+.page-case-sorriso .btn{ display:inline-flex; align-items:center; justify-content:center; padding:12px 16px; border-radius:12px; text-decoration:none; min-height:44px }
+.page-case-sorriso .btn-primary{ background:var(--accent); color:var(--accent-ink); box-shadow:0 6px 18px rgba(var(--accent-r),var(--accent-g),var(--accent-b), .25) }
+.page-case-sorriso .btn-primary:hover{ transform:translateY(-1px) }
+.page-case-sorriso .btn-ghost{ border:1px solid var(--stroke); color:var(--text); background:#0f1422 }
+
+/* Stats */
+.page-case-sorriso .stats{ display:flex; gap:18px; margin-top:10px; flex-wrap:wrap }
+.page-case-sorriso .stat{ background:rgba(255,255,255,.05); border:1px solid var(--stroke); border-radius:12px; padding:10px 14px; min-width:110px }
+.page-case-sorriso .stat .num{ font-size:1.15rem; display:block }
+.page-case-sorriso .stat .lbl{ color:var(--muted); font-size:.9rem }
+
+/* Cards */
+.page-case-sorriso .cards-grid{
+  display:grid; grid-template-columns: repeat( auto-fit, minmax(260px, 1fr) ); gap:16px
+}
+.page-case-sorriso .card{
+  position:relative; overflow:hidden; border-radius:14px;
+  background:rgba(255,255,255,.04); border:1px solid var(--stroke)
+}
+.page-case-sorriso .card-bg{ position:absolute; inset:0; background-size:cover; background-position:center; opacity:.18; transition:transform .5s ease, opacity .3s ease }
+.page-case-sorriso .card-body{
+  position:relative; z-index:1; padding:16px;
+  height:100%; display:flex; flex-direction:column; justify-content:flex-end;
+  background:linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,.35) 100%)
+}
+.page-case-sorriso .card h3{ margin:0 0 6px; font-size:1.1rem; font-weight:700 }
+.page-case-sorriso .card p{ margin:0; color:var(--muted) }
+.page-case-sorriso .card:hover .card-bg{ transform:scale(1.06); opacity:.28 }
+
+/* Botão Topo */
+.page-case-sorriso #btnTop{
+  display:none; position:fixed; bottom:28px; right:28px; z-index:1100;
+  font-size:18px; border:none; background:var(--accent); color:var(--accent-ink);
+  cursor:pointer; padding:12px 14px; border-radius:50%; box-shadow:var(--shadow)
+}
+.page-case-sorriso #btnTop:hover{ transform:translateY(-2px) }
+
+/* Reveal */
+.page-case-sorriso .reveal{ opacity:0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease }
+.page-case-sorriso .reveal.is-visible{ opacity:1; transform:none }
+
+/* Responsivo */
+@media (max-width: 960px){
+  .page-case-sorriso .hero-grid{ grid-template-columns: 1fr }
+  .page-case-sorriso .foto-perfil{ width:220px }
+}
+@media (max-width: 720px){
+  .page-case-sorriso .nav-links{
+    display:none; position:absolute; top:64px; right:0; left:0;
+    background:rgba(11,14,20,.96); border-bottom:1px solid rgba(255,255,255,.06); padding:12px;
+    flex-direction:column; gap:6px;
+  }
+  .page-case-sorriso .nav-links.open{ display:flex }
+  .page-case-sorriso .menu-toggle{ display:block }
+}
+
+/* Acessibilidade extra */
+@media (prefers-reduced-motion: reduce){
+  .page-case-sorriso *{ animation:none !important; transition:none !important }
+}
+
+/* --- Ajuste: cards empilhados (imagem em cima, texto abaixo) --- */
+.page-case-sorriso .cards-grid .card{
+  display:flex;
+  flex-direction:column;
+}
+
+.page-case-sorriso .cards-grid .card .card-bg{
+  /* a imagem deixa de ser absoluta e vira "bloco" do topo */
+  position:relative;
+  inset:auto;
+  height:auto;
+  aspect-ratio: 1 / 1;           /* mantém visual quadrado (1080x1080) */
+  opacity:1;                      /* mostra a imagem sem “neblina” */
+  background-size:cover;
+  background-position:center;
+  border-bottom:1px solid var(--stroke);
+  transition: transform .35s ease, opacity .25s ease;
+}
+
+.page-case-sorriso .cards-grid .card .card-body{
+  /* texto NÃO fica mais sobre a imagem */
+  background:none;
+  height:auto;
+  justify-content:flex-start;
+  padding:14px 16px;
+}
+
+.page-case-sorriso .cards-grid .card:hover .card-bg{
+  /* (opcional) leve zoom sem afetar o texto */
+  transform: scale(1.02);
+  opacity:1;
+}
+
+
+/* --- Empilhar imagem (topo) + texto (abaixo) nos cards --- */
+.page-case-sorriso .cards-grid .card{
+  display:flex;
+  flex-direction:column;
+}
+
+.page-case-sorriso .cards-grid .card .card-bg{
+  position:relative;
+  inset:auto;
+  height:auto;
+  aspect-ratio: 1 / 1;            /* 1080x1080 visual */
+  opacity:1;                       /* imagem limpa */
+  background-size:cover;
+  background-position:center;
+  border-bottom:1px solid var(--stroke);
+  transition: transform .35s ease, opacity .25s ease;
+}
+
+.page-case-sorriso .cards-grid .card .card-body{
+  background:none;
+  height:auto;
+  justify-content:flex-start;
+  padding:14px 16px;
+}
+
+.page-case-sorriso .cards-grid .card:hover .card-bg{
+  transform: scale(1.02);
+  opacity:1;
+}
+
+/* --- Card especial: Mockup em Grid do Feed (3×3) --- */
+.page-case-sorriso .card.has-grid .feed-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:10px;
+  padding:12px;
+  background: rgba(255,255,255,.03);
+  border-bottom:1px solid var(--stroke);
+}
+
+.page-case-sorriso .card.has-grid .feed-thumb{
+  aspect-ratio:1 / 1;
+  background-size:cover;
+  background-position:center;
+  border-radius:12px;
+  border:1px solid var(--stroke);
+  box-shadow: 0 1px 0 rgba(255,255,255,.04) inset;
+}
+
+/* Hover sutil no grid */
+.page-case-sorriso .card.has-grid .feed-thumb:hover{
+  transform: translateY(-2px);
+  transition: transform .2s ease;
+}
+
+/* Responsivo: dá um respiro no grid */
+@media (max-width: 520px){
+  .page-case-sorriso .card.has-grid .feed-grid{ gap:8px; padding:10px }
+  .page-case-sorriso .cards-grid .card .card-body{ padding:12px 14px }
+}
+
+/* ====== IMAGENS VERTICAIS (4:5) SEM CROP ====== */
+/* Usa variáveis para controlar razão e modo de encaixe por card */
+.page-case-sorriso .cards-grid .card .card-bg{
+  position: relative;
+  inset: auto;
+  height: auto;
+  aspect-ratio: var(--ratio, 1 / 1);   /* padrão quadrado; pode virar 4/5 */
+  background-size: var(--bg-fit, cover); /* 'cover' padrão; pode virar 'contain' */
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 1;                           /* sem neblina */
+  border-bottom: 1px solid var(--stroke);
+  transition: transform .35s ease, opacity .25s ease;
+}
+
+/* Empilha imagem (em cima) + texto (abaixo) */
+.page-case-sorriso .cards-grid .card{
+  display: flex;
+  flex-direction: column;
+}
+.page-case-sorriso .cards-grid .card .card-body{
+  background: none;
+  height: auto;
+  justify-content: flex-start;
+  padding: 14px 16px;
+}
+.page-case-sorriso .cards-grid .card:hover .card-bg{ transform: scale(1.02); }
+
+/* Marcadores por card */
+.page-case-sorriso .card.is-portrait .card-bg{ --ratio: 4 / 5; }      /* retrato Instagram */
+.page-case-sorriso .card.fit-contain .card-bg{
+  --bg-fit: contain;                           /* mostra 100% da imagem (sem corte) */
+  background-color: rgba(255,255,255,.03);     /* “letterbox” discreto quando sobrar espaço */
+}
+
+/* (se quiser sempre preencher sem sobras e aceitar corte, use só .is-portrait) */
+
+/* ---- (se você tiver o card do feed em grid, mantemos) ---- */
+.page-case-sorriso .card.has-grid .feed-grid{
+  display:grid; grid-template-columns: repeat(3, 1fr);
+  gap:10px; padding:12px;
+  background: rgba(255,255,255,.03);
+  border-bottom:1px solid var(--stroke);
+}
+.page-case-sorriso .card.has-grid .feed-thumb{
+  aspect-ratio:1 / 1; background-size:cover; background-position:center;
+  border-radius:12px; border:1px solid var(--stroke);
+  box-shadow: 0 1px 0 rgba(255,255,255,.04) inset;
+}
+.page-case-sorriso .card.has-grid .feed-thumb:hover{ transform: translateY(-2px); transition: transform .2s ease; }
+@media (max-width:520px){
+  .page-case-sorriso .card.has-grid .feed-grid{ gap:8px; padding:10px }
+  .page-case-sorriso .cards-grid .card .card-body{ padding:12px 14px }
+}
+
+
+/* ====== Cards: mostrar 100% da imagem (sem corte) ====== */
+/* Nova área de mídia baseada em <img>, com razão controlável por card */
+.page-case-sorriso .card-media{
+  position: relative;
+  width: 100%;
+  aspect-ratio: var(--ratio, 1 / 1);    /* padrão quadrado; retrato = 4/5 */
+  background: rgba(255,255,255,.03);
+  border-bottom: 1px solid var(--stroke);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;                      /* evita scrollbars em casos raros */
+}
+.page-case-sorriso .card-media img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;                   /* MOSTRA 100% da arte */
+  display: block;
+}
+
+/* Empilhamento imagem (topo) + texto (abaixo) */
+.page-case-sorriso .cards-grid .card{
+  display: flex;
+  flex-direction: column;
+}
+.page-case-sorriso .cards-grid .card .card-body{
+  background: none;
+  height: auto;
+  justify-content: flex-start;
+  padding: 14px 16px;
+}
+
+/* Marcação por formato */
+.page-case-sorriso .card.is-portrait .card-media{ --ratio: 4 / 5; } /* retrato 1080×1350 */
+.page-case-sorriso .card.is-square  .card-media{ --ratio: 1 / 1; }  /* quadrado 1080×1080 */
+
+/* Hover sutil */
+.page-case-sorriso .cards-grid .card:hover .card-media{ transform: scale(1.01); transition: transform .25s ease; }
+
+/* ====== Card especial: Mockup do Feed (grid 3×3) ====== */
+.page-case-sorriso .card.has-grid .feed-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 12px;
+  background: rgba(255,255,255,.03);
+  border-bottom: 1px solid var(--stroke);
+}
+.page-case-sorriso .card.has-grid .feed-thumb{
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  border: 1px solid var(--stroke);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page-case-sorriso .card.has-grid .feed-thumb img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;  /* também sem corte no grid */
+  display: block;
+}
+.page-case-sorriso .card.has-grid .feed-thumb:hover{
+  transform: translateY(-2px);
+  transition: transform .2s ease;
+}
+
+/* Responsivo */
+@media (max-width: 520px){
+  .page-case-sorriso .card.has-grid .feed-grid{ gap: 8px; padding: 10px }
+  .page-case-sorriso .cards-grid .card .card-body{ padding: 12px 14px }
+}
+
+
+/* ==== Centralização exata das artes (corrige deslocamento à direita) ==== */
+.page-case-sorriso figure{ margin:0 }                  /* remove margem padrão do <figure> */
+.page-case-sorriso .card-media{ 
+  margin:0; padding:0;
+  display:flex; align-items:center; justify-content:center;
+  position:relative; width:100%;
+  aspect-ratio: var(--ratio, 1 / 1);
+  background: rgba(255,255,255,.03);
+  border-bottom:1px solid var(--stroke);
+  overflow:hidden;
+}
+.page-case-sorriso .card-media img{
+  margin:0; display:block;
+  width:100%; height:100%;
+  object-fit: contain;               /* mostra 100% da arte */
+  object-position: center center;    /* fixa no centro exato */
+  transform: translateZ(0);          /* evita pequenos “jumps” de renderização */
+}
+
+/* (opcional) remova qualquer micro-zoom que possa dar impressão de deslocamento */
+.page-case-sorriso .cards-grid .card:hover .card-media{ transform:none }
+
+/* ===== Hover de imagem: zoom + overlay dentro do figure ===== */
+
+/* transição suave no <img> */
+.page-case-sorriso .card-media img{
+  transition: transform .25s ease;
+  will-change: transform;
+}
+
+/* zoom sutil da arte sem deslocar layout */
+.page-case-sorriso .card:hover .card-media img{
+  transform: scale(1.035);
+}
+
+/* overlay leve que “passa por cima” da arte (não afeta o texto) */
+.page-case-sorriso .card-media::after{
+  content:"";
+  position:absolute; inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,.18) 100%);
+  opacity:0;
+  transition: opacity .25s ease;
+}
+.page-case-sorriso .card:hover .card-media::after{ opacity:.25; }
+
+/* opcional: realce de borda no hover */
+.page-case-sorriso .card:hover{ border-color: rgba(255,255,255,.18); }
+
+/* Grid 3x3: mesmo efeito nas thumbs */
+.page-case-sorriso .card.has-grid .feed-thumb img{
+  transition: transform .25s ease;
+  will-change: transform;
+}
+.page-case-sorriso .card.has-grid .feed-thumb:hover img{
+  transform: scale(1.04);
+}
+.page-case-sorriso .card.has-grid .feed-thumb::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,.15) 100%);
+  opacity:0; transition: opacity .25s ease;
+}
+.page-case-sorriso .card.has-grid .feed-thumb:hover::after{ opacity:.2; }

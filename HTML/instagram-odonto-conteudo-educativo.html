@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Instagram Odonto — Conteúdo Educativo | Portfólio de Geremias</title>
+  <link rel="stylesheet" href="../CSS/instagram-odonto-conteudo-educativo.css" />
+  <meta name="theme-color" content="#0b0e14"/>
+</head>
+<body class="page-instagram-odonto" data-page="instagram-odonto">
+  <!-- Skip link (A11y) -->
+  <a href="#conteudo" class="skip-link">Pular para conteúdo principal</a>
+
+  <!-- Botão Topo -->
+  <button onclick="scrollToTop()" id="btnTop" title="Voltar ao topo" aria-label="Voltar ao topo">↑</button>
+
+  <!-- Navbar (links retornam ao index) -->
+  <header class="navbar">
+    <nav class="nav-inner" aria-label="Principal">
+      <a class="brand" href="../index.html" aria-label="Ir para a página inicial">Geremias | Design para Dentistas</a>
+
+      <button class="menu-toggle" id="hamburger-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+
+      <ul id="nav-links" class="nav-links">
+        <li><a href="../index.html#apresentacao">Sobre</a></li>
+        <li><a href="../index.html#projetos">Estudos de Caso</a></li>
+        <li><a href="../index.html#servicos">Soluções</a></li>
+        <li><a href="../index.html#contato">Fale com um Especialista</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="conteudo">
+    <!-- Hero da categoria -->
+    <section class="section hero reveal">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <h1 class="hero-title">Instagram Odonto — <span class="accent">Conteúdo Educativo</span></h1>
+            <p class="hero-sub">
+              Linha editorial que transforma informação clínica em posts claros e confiáveis — reduz objeções,
+              fortalece a autoridade e incentiva agendamentos.
+            </p>
+
+            <div class="stats">
+              <div class="stat"><span class="num">🎯</span><span class="lbl">Autoridade & Confiança</span></div>
+              <div class="stat"><span class="num">🗓️</span><span class="lbl">Consistência semanal</span></div>
+              <div class="stat"><span class="num">🧩</span><span class="lbl">Templates replicáveis</span></div>
+            </div>
+
+            <div class="hero-actions" style="margin-top:16px">
+              <!-- AJUSTADO: link vai para a página do case -->
+              <a class="btn btn-primary" href="./case-sorriso-pleno.html">Ver estudo de caso</a>
+              <a class="btn btn-ghost" href="../index.html#contato">Quero isso na minha clínica</a>
+            </div>
+          </div>
+
+          <div class="hero-media">
+            <img src="../img/Photo/pile-3d-instagram-logos.png"
+                 alt="Composição com logos do Instagram representando conteúdo educativo em odontologia"
+                 class="foto-perfil" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cards da categoria -->
+    <section class="section reveal">
+      <div class="container">
+        <h2 class="section-title">Casos nesta categoria</h2>
+        <p class="section-sub">Clique para ver o detalhamento do conteúdo aplicado.</p>
+
+        <div class="cards-grid" id="cards">
+          <!-- Card único apontando para a PÁGINA do case -->
+          <article class="card" data-category="instagram-odonto" data-title="Guia Visual — Clínica Sorriso Pleno">
+            <a href="./case-sorriso-pleno.html">
+              <div class="card-bg" style="background-image:url('../img/Photo/3410479.jpg')"></div>
+              <div class="card-body">
+                <h3>Guia Visual — Clínica Sorriso Pleno</h3>
+                <p><strong>Desafio:</strong> Educar o público e reduzir objeções em tratamentos estéticos.</p>
+                <p><strong>Solução:</strong> Carrosséis e stories com padrões visuais e linguagem simples.</p>
+                <p class="muted"><strong>Impacto:</strong> mais engajamento e mensagens para avaliação.</p>
+              </div>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main> <!-- AJUSTE: fechamento do main -->
+
+  <!-- JS mínimo e isolado -->
+  <script>
+    // Scroll suave para o topo
+    function scrollToTop(){ window.scrollTo({ top: 0, behavior: "smooth" }); }
+
+    // Mostrar/ocultar botão de topo
+    (function(){
+      const btnTop = document.getElementById("btnTop");
+      window.addEventListener("scroll", () => {
+        btnTop.style.display = window.scrollY > 300 ? "block" : "none";
+      });
+    })();
+
+    // Menu mobile simples
+    (function(){
+      const hamburger = document.getElementById("hamburger-menu");
+      const navLinks = document.getElementById("nav-links");
+      if(!hamburger || !navLinks) return;
+      hamburger.addEventListener("click", () => {
+        const opened = navLinks.classList.toggle("open");
+        hamburger.setAttribute("aria-expanded", opened ? "true" : "false");
+      });
+    })();
+
+    // Reveal on scroll (leve)
+    (function(){
+      const els = document.querySelectorAll(".reveal");
+      if(!("IntersectionObserver" in window)){ els.forEach(el => el.classList.add("is-visible")); return; }
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting){ e.target.classList.add("is-visible"); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      els.forEach(el=>io.observe(el));
+    })();
+  </script>
+</body>
+</html>

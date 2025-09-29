@@ -1,0 +1,27 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Depoimento de Paciente — Em breve | Portfólio de Geremias</title>
+<link rel="stylesheet" href="../CSS/antes-depois.css"/><meta name="theme-color" content="#0b0e14"/>
+</head><body class="page-wip">
+<a href="#conteudo" class="skip-link">Pular para conteúdo principal</a>
+<button onclick="scrollToTop()" id="btnTop" title="Voltar ao topo" aria-label="Voltar ao topo">↑</button>
+<header class="navbar"><nav class="nav-inner" aria-label="Principal">
+  <a class="brand" href="../index.html">Geremias | Design para Dentistas</a>
+  <button class="menu-toggle" id="hamburger-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+  <ul id="nav-links" class="nav-links"><li><a href="../HTML/case-sorriso-pleno.html">Voltar ao case</a></li><li><a href="../index.html#contato">Contato</a></li></ul>
+</nav></header>
+<main id="conteudo">
+  <section class="section hero reveal"><div class="container"><div class="hero-grid">
+    <div><h1 class="hero-title">Template <span class="accent">Depoimento de Paciente</span></h1>
+      <p class="hero-sub"><b>Em produção.</b> Vamos mostrar formatos de aspas em dourado e boas práticas de prova social.</p>
+      <div class="hero-actions"><a class="btn btn-primary" href="../HTML/case-sorriso-pleno.html">← Voltar ao estudo de caso</a><a class="btn btn-ghost" href="../index.html#contato">Fale com um Especialista</a></div>
+    </div><img class="foto" src="../img/Photo/pile-3d-instagram-logos.png" alt=""/></div></div></section>
+  <section class="section reveal"><div class="container"><div class="wip"><div class="art"></div><p class="caption">Modelos de depoimento (curto, médio, com foto/sem foto) aparecerão aqui.</p></div></div></section>
+</main>
+<script>
+function scrollToTop(){ window.scrollTo({ top: 0, behavior: "smooth" }); }
+(function(){ const b=document.getElementById("btnTop"); addEventListener("scroll",()=>{ b.style.display=scrollY>300?"block":"none"; }); })();
+(function(){ const h=document.getElementById("hamburger-menu"), n=document.getElementById("nav-links"); if(!h||!n) return; h.addEventListener("click",()=>{ const o=n.classList.toggle("open"); h.setAttribute("aria-expanded",o?"true":"false"); }); })();
+(function(){ const els=document.querySelectorAll(".reveal"); if(!("IntersectionObserver" in window)){ els.forEach(el=>el.classList.add("is-visible")); return; } const io=new IntersectionObserver((entries)=>{ entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("is-visible"); io.unobserve(e.target); } }); },{threshold:0.12}); els.forEach(el=>io.observe(el)); })();
+</script>
+</body></html>
