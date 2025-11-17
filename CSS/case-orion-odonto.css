@@ -1,0 +1,586 @@
+/* =========================
+   BASE DE ESTILO GERAL
+   ========================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.page-case-orion {
+  --bg: #0b0e14;
+  --text: #e9eef2;
+  --muted: #a6b0c3;
+  --accent: #4da6ff;
+  --accent-ink: #ffffff;
+  --stroke: #1d2233;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --radius: 14px;
+  --container: 1200px;
+  --font: ui-sans-serif, system-ui, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji";
+
+  min-height: 100vh;
+  color: var(--text);
+  font-family: var(--font);
+  background: #151a2a;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+/* Containers e seções genéricas */
+
+.section {
+  padding: 56px 0;
+}
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  margin: 0 0 8px;
+}
+
+.section-sub {
+  margin: 0 0 16px;
+  color: var(--muted);
+}
+
+.accent {
+  color: var(--accent);
+}
+
+/* Skip link (acessibilidade) */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 8px;
+  background: #fff;
+  color: #000;
+  padding: 8px 12px;
+  border-radius: 6px;
+  z-index: 9999;
+}
+
+.skip-link:focus {
+  left: 8px;
+}
+
+/* Botão Voltar ao Topo */
+#btnTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 999px;
+  border: none;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  background: var(--accent);
+  color: var(--accent-ink);
+  box-shadow: var(--shadow);
+  display: none;
+  font-size: 1.3rem;
+  line-height: 0;
+  z-index: 900;
+}
+
+/* =========================
+   HEADER E NAVEGAÇÃO
+   ========================= */
+.page-case-orion .navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(11, 14, 20, 0.85);
+  backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.page-case-orion .nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.page-case-orion .brand {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Menu normal (desktop) */
+.page-case-orion .nav-links {
+  display: flex;
+  gap: 18px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.page-case-orion .nav-links a {
+  color: var(--muted);
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+
+.page-case-orion .nav-links a:hover,
+.page-case-orion .nav-links a:focus {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Botão hamburguer base (fica escondido no desktop) */
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.menu-toggle .bar {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 999px;
+  margin: 4px 0;
+}
+
+/* =========================
+   HERO (SEÇÃO PRINCIPAL)
+   ========================= */
+.hero {
+  padding-top: 32px;
+}
+
+.page-case-orion .hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 28px;
+  align-items: center;
+}
+
+.page-case-orion .hero-title {
+  margin: 0 0 10px;
+  font-size: 2.1rem;
+}
+
+.page-case-orion .hero-sub {
+  color: var(--muted);
+  margin: 0 0 18px;
+}
+
+.page-case-orion .hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 16px 0 20px;
+}
+
+.page-case-orion .hero-media {
+  display: flex;
+  justify-content: center;
+}
+
+.page-case-orion .foto-perfil {
+  width: 100%;
+  height: auto;
+  max-width: 260px;
+  border-radius: 18px;
+  display: block;
+  margin: 0 auto;
+  box-shadow: var(--shadow);
+}
+
+/* =========================
+   CARDS
+   ========================= */
+
+/* =========================
+   CARDS
+   ========================= */
+
+.page-case-orion .cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.page-case-orion .card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Área de mídia do card (onde entra a imagem) */
+.page-case-orion .card-media {
+  margin: 0;                     
+  padding: 0;
+  width: 100%;
+  aspect-ratio: 4 / 5;           /* mantém formato “post Insta” */
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--stroke);
+  overflow: hidden;
+  display: block;
+}
+
+/* Imagem dentro do card */
+.page-case-orion .card-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;             /* preenche bem o card */
+  object-position: center;
+  margin: 0;
+  padding: 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Efeito de zoom no hover */
+.page-case-orion .card-media:hover img {
+  transform: scale(1.05);
+}
+
+.page-case-orion .card-body {
+  padding: 14px 16px;
+  background: none;
+}
+
+.page-case-orion .card h3 {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+}
+
+.page-case-orion .card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* Remove qualquer margem padrão de figure */
+.page-case-orion figure {
+  margin: 0;
+}
+
+
+/* Área de mídia do card (onde entra a imagem) */
+/* ajuste na área da imagem do card */
+.page-case-orion .card-media {
+  width: 100%;
+  aspect-ratio: 3 / 4;        /* era 4 / 5, deixei um pouco mais baixa */
+  background: rgba(255, 255, 255, 0.03);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-bottom: 1px solid var(--stroke);
+}
+
+/* imagem dentro do card */
+.page-case-orion .card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;          /* antes estava contain */
+  object-position: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+
+/* Efeito de zoom no hover */
+.page-case-orion .card-media:hover img {
+  transform: scale(1.05);
+}
+
+.page-case-orion .card-body {
+  padding: 14px 16px;
+  background: none;
+}
+
+.page-case-orion .card h3 {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+}
+
+.page-case-orion .card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* =========================
+   BOTÕES
+   ========================= */
+.page-case-orion .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 18px;
+  border-radius: 12px;
+  text-decoration: none;
+  min-height: 44px;
+  border: 0;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.page-case-orion .btn-primary {
+  background: var(--accent);
+  color: var(--accent-ink);
+  box-shadow: 0 10px 25px rgba(77, 166, 255, 0.25);
+}
+
+.page-case-orion .btn-primary:hover {
+  transform: translateY(-1px);
+}
+
+.page-case-orion .btn-ghost {
+  border: 1px solid var(--stroke);
+  background: #0f1422;
+  color: var(--text);
+}
+
+.page-case-orion .btn-ghost:hover {
+  background: #171c2b;
+}
+
+/* =========================
+   RESPONSIVO
+   ========================= */
+
+/* Até 960px: hero vira 1 coluna */
+@media (max-width: 960px) {
+  .page-case-orion .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .page-case-orion .hero-title {
+    font-size: 1.7rem;
+  }
+
+  .page-case-orion .hero-media {
+    order: -1; /* opcional: imagem vem antes do texto */
+  }
+
+  .page-case-orion .foto-perfil {
+    max-width: 220px;
+  }
+}
+
+/* Até 720px: ativa menu hamburguer e ajusta ações */
+@media (max-width: 720px) {
+  .page-case-orion .nav-inner {
+    height: 64px;
+  }
+
+  /* Mostra hamburguer, esconde menu horizontal */
+  .menu-toggle {
+    display: block;
+  }
+
+  .page-case-orion .nav-links {
+    display: none;
+    position: absolute;
+    top: 64px;
+    right: 0;
+    left: 0;
+    background: rgba(11, 14, 20, 0.96);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 12px 16px 16px;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .page-case-orion .nav-links.open {
+    display: flex;
+  }
+
+  .page-case-orion .nav-links a {
+    width: 100%;
+  }
+
+  .page-case-orion .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* Telas bem pequenas (ex.: 360px) */
+@media (max-width: 480px) {
+  .section {
+    padding: 40px 0;
+  }
+
+  .page-case-orion .cards-grid {
+    grid-template-columns: 1fr; /* 1 card por linha */
+  }
+
+  .page-case-orion .hero-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* ==== RESET ESPECÍFICO DOS CARDS (COLOQUE NO FINAL DO CSS) ==== */
+
+.page-case-orion .card-media {
+  width: 100%;
+  /* remove o aspect-ratio fixo que esticava o card */
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--stroke);
+  overflow: hidden;
+  padding: 0;
+  display: block;
+}
+
+.page-case-orion .card-media img {
+  display: block;
+  width: 100%;
+  height: auto;          /* deixa a proporção original da arte */
+  object-fit: contain;   /* garante que nada seja cortado */
+  object-position: center;
+  margin: 0;
+  padding: 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+.page-case-orion .card-media:hover img {
+  transform: scale(1.03);
+}
+
+
+.page-case-orion .card-media {
+  aspect-ratio: 4 / 5;
+}
+
+.page-case-orion .card-media img {
+  height: 100%;
+}
+
+
+/* Remove o espaçamento padrão do <figure> */
+.page-case-orion .card-media {
+  margin: 0;        /* isso que tira o espaço grande */
+  padding: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--stroke);
+  overflow: hidden;
+  display: block;
+}
+
+/* Garantir que a imagem ocupe o card certinho */
+.page-case-orion .card-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  margin: 0;
+  padding: 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+
+.page-case-orion figure {
+  margin: 0;
+}
+
+
+/* =========================
+   AJUSTE GERAL PARA CELULARES (incluindo presets do DevTools)
+   ========================= */
+
+/* Telefones e dobráveis em modo retrato até ~900px */
+@media (max-width: 900px) {
+  /* Hero em uma coluna */
+  .page-case-orion .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .page-case-orion .hero-title {
+    font-size: 1.6rem;
+  }
+
+  .page-case-orion .hero-media {
+    justify-content: center;
+  }
+
+  /* Cards: 1 por linha (mais confortável pra dedo) */
+  .page-case-orion .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Botões em coluna */
+  .page-case-orion .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* Navbar mais compacta */
+  .page-case-orion .nav-inner {
+    height: 64px;
+    padding: 0 12px;
+  }
+
+  /* Hamburguer visível nesses devices também */
+  .menu-toggle {
+    display: block;
+  }
+
+  .page-case-orion .nav-links {
+    display: none;
+    position: absolute;
+    top: 64px;
+    right: 0;
+    left: 0;
+    background: rgba(11, 14, 20, 0.96);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 12px 16px 16px;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .page-case-orion .nav-links.open {
+    display: flex;
+  }
+
+  .page-case-orion .nav-links a {
+    width: 100%;
+  }
+}
+
+/* Telas bem pequenas mesmo (tipo iPhone SE / menor que 400px) */
+@media (max-width: 400px) {
+  .section {
+    padding: 32px 0;
+  }
+
+  .page-case-orion .hero-title {
+    font-size: 1.4rem;
+  }
+}
