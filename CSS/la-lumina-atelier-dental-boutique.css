@@ -1,0 +1,484 @@
+/* =========================
+   BASE DE ESTILO ESPECÍFICO PARA A PÁGINA DE ESTUDO DE CASO
+   ========================= */
+
+/* Reset básico */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Definindo variáveis específicas para esta página */
+.page-case-lumina {
+  --bg: #151a2a; /* Cor de fundo */
+  --text: #e9eef2; /* Cor do texto */
+  --muted: #a6b0c3; /* Texto secundário */
+  --accent: #01b9e0; /* Cor dourada para destaque */
+  --accent-ink: #ffffff; /* Cor do texto no destaque */
+  --stroke: #1d2233; /* Cor para bordas */
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35); /* Sombra */
+  --radius: 14px; /* Raio de borda */
+  --container: 1200px; /* Largura máxima */
+  --font: ui-sans-serif, system-ui, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji"; /* Fonte */
+  min-height: 100vh;
+  color: var(--text);
+  font-family: var(--font);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+/* =========================
+   SEÇÕES E CONTAINER
+   ========================= */
+.section {
+  padding: 56px 0;
+}
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin: 0 0 10px;
+}
+
+.section-sub {
+  color: var(--muted);
+  margin: 0 0 20px;
+}
+
+/* =========================
+   HEADER E NAVEGAÇÃO
+   ========================= */
+.page-case-lumina .navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(11, 14, 20, 0.85);
+  backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.page-case-lumina .nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.page-case-lumina .brand {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Menu no desktop */
+.page-case-lumina .nav-links {
+  display: flex;
+  gap: 18px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.page-case-lumina .nav-links a {
+  color: var(--muted);
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+
+.page-case-lumina .nav-links a:hover,
+.page-case-lumina .nav-links a:focus {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* =========================
+   HERO (SEÇÃO PRINCIPAL)
+   ========================= */
+.page-case-lumina .hero {
+  padding-top: 32px;
+}
+
+.page-case-lumina .hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 28px;
+  align-items: center;
+}
+
+.page-case-lumina .hero-title {
+  font-size: 2.5rem;
+  margin: 0 0 10px;
+}
+
+.page-case-lumina .hero-sub {
+  color: var(--muted);
+  margin: 0 0 18px;
+}
+
+.page-case-lumina .hero-actions {
+  display: flex;
+  gap: 10px;
+  margin: 16px 0 20px;
+}
+
+.page-case-lumina .hero-media {
+  display: flex;
+  justify-content: center;
+}
+
+.page-case-lumina .foto-perfil {
+  width: 100%;
+  height: auto;
+  max-width: 260px;
+  border-radius: 18px;
+  display: block;
+  margin: 0 auto;
+  box-shadow: var(--shadow);
+}
+
+/* =========================
+   CARDS
+   ========================= */
+.page-case-lumina .cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.page-case-lumina .card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Área de mídia do card */
+.page-case-lumina .card-media {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  aspect-ratio: 3 / 4; /* Ajustando para formato mais vertical */
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--stroke);
+  overflow: hidden;
+}
+
+/* Efeito de zoom nas imagens */
+.page-case-lumina .card-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Alinha a imagem sem cortar, mantendo a proporção */
+  object-position: center;
+  transition: transform 0.3s ease-in-out;
+  cursor: zoom-in;  /* Indica que a imagem pode ser ampliada */
+}
+
+/* Quando a imagem for clicada, ampliamos */
+.page-case-lumina .card-media img.zoomed {
+  transform: scale(1.5); /* Amplia a imagem */
+  cursor: zoom-out; /* Muda o cursor para mostrar que pode reduzir */
+}
+
+.page-case-lumina .card-media:hover img {
+  transform: scale(1.05);
+}
+
+.page-case-lumina .card-body {
+  padding: 14px 16px;
+  background: none;
+}
+
+.page-case-lumina .card h3 {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+}
+
+.page-case-lumina .card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* =========================
+   BOTÕES
+   ========================= */
+.page-case-lumina .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 18px;
+  border-radius: 12px;
+  text-decoration: none;
+  min-height: 44px;
+  border: 0;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.page-case-lumina .btn-primary {
+  background: var(--accent);
+  color: var(--accent-ink);
+  box-shadow: 0 10px 25px rgba(77, 166, 255, 0.25);
+}
+
+.page-case-lumina .btn-primary:hover {
+  transform: translateY(-1px);
+}
+
+.page-case-lumina .btn-ghost {
+  border: 1px solid var(--stroke);
+  background: #0f1422;
+  color: var(--text);
+}
+
+.page-case-lumina .btn-ghost:hover {
+  background: #171c2b;
+}
+
+/* =========================
+   RESPONSIVO
+   ========================= */
+@media (max-width: 960px) {
+  .page-case-lumina .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .page-case-lumina .hero-title {
+    font-size: 1.7rem;
+  }
+
+  .page-case-lumina .hero-media {
+    order: -1; /* imagem antes do texto */
+  }
+
+  .page-case-lumina .foto-perfil {
+    max-width: 220px;
+  }
+}
+
+@media (max-width: 720px) {
+  .page-case-lumina .nav-inner {
+    height: 64px;
+  }
+
+  /* Mostra hamburguer, esconde menu horizontal */
+  .menu-toggle {
+    display: block;
+  }
+
+  .page-case-lumina .nav-links {
+    display: none;
+    position: absolute;
+    top: 64px;
+    right: 0;
+    left: 0;
+    background: rgba(11, 14, 20, 0.96);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 12px 16px 16px;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .page-case-lumina .nav-links.open {
+    display: flex;
+  }
+
+  .page-case-lumina .nav-links a {
+    width: 100%;
+  }
+
+  .page-case-lumina .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 40px 0;
+  }
+
+  .page-case-lumina .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-case-lumina .hero-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* =========================
+   BASE DE ESTILO ESPECÍFICO PARA A PÁGINA DE ESTUDO DE CASO
+   ========================= */
+
+/* Reset básico */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Definindo variáveis específicas para esta página */
+.page-case-lumina {
+  --bg: #151a2a; /* Cor de fundo */
+  --text: #e9eef2; /* Cor do texto */
+  --muted: #a6b0c3; /* Texto secundário */
+  --accent: #01b9e0; /* Cor dourada para destaque */
+  --accent-ink: #ffffff; /* Cor do texto no destaque */
+  --stroke: #1d2233; /* Cor para bordas */
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35); /* Sombra */
+  --radius: 14px; /* Raio de borda */
+  --container: 1200px; /* Largura máxima */
+  --font: ui-sans-serif, system-ui, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji"; /* Fonte */
+  min-height: 100vh;
+  color: var(--text);
+  font-family: var(--font);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+/* =========================
+   LIGHTBOX - Modal de Imagem
+   ========================= */
+.page-case-lumina .lightbox {
+  display: none; /* Inicialmente oculto */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8); /* Cor de fundo escuro */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.page-case-lumina .lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+  border-radius: 14px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.page-case-lumina .lightbox:target {
+  display: flex; /* Exibe o modal */
+}
+
+/* =========================
+   CARDS
+   ========================= */
+.page-case-lumina .cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.page-case-lumina .card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Área de mídia do card */
+.page-case-lumina .card-media {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  aspect-ratio: 3 / 4; /* Ajustando para formato mais vertical */
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--stroke);
+  overflow: hidden;
+}
+
+.page-case-lumina .card-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Alinha a imagem sem cortar, mantendo a proporção */
+  object-position: center;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;  /* Indica que a imagem pode ser ampliada */
+  will-change: transform; /* Para otimizar a performance */
+}
+
+/* =========================
+   RESPONSIVO
+   ========================= */
+@media (max-width: 960px) {
+  .page-case-lumina .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .page-case-lumina .foto-perfil {
+    max-width: 220px;
+  }
+}
+
+@media (max-width: 720px) {
+  .page-case-lumina .nav-inner {
+    height: 64px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .page-case-lumina .nav-links {
+    display: none;
+    position: absolute;
+    top: 64px;
+    right: 0;
+    left: 0;
+    background: rgba(11, 14, 20, 0.96);
+    padding: 12px 16px 16px;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 40px 0;
+  }
+}
+
